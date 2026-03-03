@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Press kit and media resources for Wandering Pine Press — bios, game descriptions, and contact info for journalists and podcasters."/>
+  <title>Press Kit — Wandering Pine Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .press-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
+    .press-main h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 3rem 0 0.75rem; color: var(--pine); border-bottom: 2px solid var(--parchment); padding-bottom: 0.5rem; }
+    .press-main h2:first-child { margin-top: 0; }
+    .press-main p { font-size: 0.97rem; line-height: 1.85; color: #444; font-weight: 300; margin-bottom: 1rem; }
+    .press-main p strong { color: var(--ink); font-weight: 700; }
+
+    /* Boilerplate copy block */
+    .copy-block { background: var(--parchment); border-left: 4px solid var(--moss); border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin: 1rem 0 1.5rem; position: relative; }
+    .copy-block p { margin: 0; font-size: 0.92rem; color: #444; font-style: italic; }
+    .copy-btn { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--pine); color: var(--cream); border: none; border-radius: 4px; padding: 0.3rem 0.7rem; cursor: pointer; font-family: 'Nunito', sans-serif; transition: background 0.2s; }
+    .copy-btn:hover { background: var(--rust); }
+    .copied { background: var(--moss) !important; }
+
+    /* Game press entries */
+    .press-game { background: var(--cream); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.25rem; border-left: 4px solid var(--parchment); }
+    .press-game.campaign { border-left-color: var(--rust); }
+    .press-game.oneshot  { border-left-color: var(--gold); }
+    .press-game-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .press-game h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+    .press-game p { font-size: 0.88rem; line-height: 1.7; color: #555; margin: 0; font-weight: 300; }
+
+    /* Appearances */
+    .appearances-list { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .appearance-item { background: var(--parchment); border-radius: 6px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .appearance-item .show-name { font-weight: 700; font-size: 0.92rem; }
+    .appearance-item .show-date { font-family: 'Special Elite', cursive; font-size: 0.72rem; letter-spacing: 0.1em; color: #aaa; }
+    .appearance-item a { font-size: 0.8rem; font-weight: 700; color: var(--pine-light); text-decoration: none; }
+    .appearance-item a:hover { color: var(--rust); }
+    .add-appearance { font-size: 0.82rem; color: #aaa; font-style: italic; margin-top: 0.5rem; }
+
+    /* Sidebar */
+    .press-sidebar { position: sticky; top: 84px; }
+    .press-contact-card { background: var(--pine); color: var(--cream); border-radius: 10px; padding: 1.75rem; margin-bottom: 1.25rem; }
+    .press-contact-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 1rem; }
+    .press-contact-card p { font-size: 0.88rem; line-height: 1.7; color: var(--mist); margin-bottom: 0.5rem; font-weight: 300; }
+    .press-contact-card a { color: var(--moss); font-weight: 600; text-decoration: none; }
+    .press-contact-card a:hover { color: var(--gold); }
+    .asset-card { background: var(--parchment); border-radius: 10px; padding: 1.75rem; }
+    .asset-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 1rem; color: var(--pine); }
+    .asset-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .asset-list li { font-size: 0.86rem; color: #555; display: flex; align-items: center; gap: 0.5rem; }
+    .asset-list li span { font-size: 0.9rem; }
+    .asset-note { font-size: 0.78rem; color: #aaa; margin-top: 1rem; font-style: italic; }
+
+    @media (max-width: 900px) { .press-layout { grid-template-columns: 1fr; } .press-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Media Resources</span>
+    <h1>Press Kit</h1>
+    <p>Everything you need to cover Wandering Pine Press — bios, game descriptions, assets, and contact info. Thank you for your interest in our work.</p>
+  </div>
+</div>
+
+<section>
+  <div class="press-layout">
+
+    <div class="press-main">
+
+      <!-- COMPANY -->
+      <h2>About Wandering Pine Press</h2>
+      <p>Wandering Pine Press is an independent tabletop RPG publisher focused on narrative-first games that are easy to start and designed to fit into real, busy lives. Founded by husband and wife team Brian and Crystal Hazzard in Virginia.</p>
+
+      <p><strong>One-line description:</strong></p>
+      <div class="copy-block">
+        <p>Wandering Pine Press is an independent publisher with a focus on games that help players collaborate to tell compelling character-driven stories.</p>
+        <button class="copy-btn" onclick="copyText(this, 'Wandering Pine Press is an independent publisher with a focus on games that help players collaborate to tell compelling character-driven stories.')">Copy</button>
+      </div>
+
+      <p><strong>Short bio (for show notes, introductions, etc.):</strong></p>
+      <div class="copy-block">
+        <p>Wandering Pine Press is an independent tabletop RPG publisher from Virginia. Founded by designer Brian Hazzard and editor/layout designer Crystal Hazzard, the company focuses on narrative-first games that are easy to learn and designed to fit into real, busy lives. Their catalog includes full campaign games and the One Night Worlds line of single-session adventures.</p>
+        <button class="copy-btn" onclick="copyText(this, 'Wandering Pine Press is an independent tabletop RPG publisher from Virginia. Founded by designer Brian Hazzard and editor/layout designer Crystal Hazzard, the company focuses on narrative-first games that are easy to learn and designed to fit into real, busy lives. Their catalog includes full campaign games and the One Night Worlds line of single-session adventures.')">Copy</button>
+      </div>
+
+      <!-- BRIAN BIO -->
+      <h2>Designer Bio — Brian Hazzard</h2>
+      <p><strong>Short bio (for podcast intros):</strong></p>
+      <div class="copy-block">
+        <p>Brian Hazzard is the designer and creative director of Wandering Pine Press. He designs narrative-first tabletop RPGs built around character-driven storytelling and accessible mechanics. A lifelong collector of hobbies — boardgames, gamebooks, RPGs, papercraft, and magic tricks — Brian is always looking for the next great obsession.</p>
+        <button class="copy-btn" onclick="copyText(this, 'Brian Hazzard is the designer and creative director of Wandering Pine Press. He designs narrative-first tabletop RPGs built around character-driven storytelling and accessible mechanics. A lifelong collector of hobbies — boardgames, gamebooks, RPGs, papercraft, and magic tricks — Brian is always looking for the next great obsession.')">Copy</button>
+      </div>
+
+      <p><strong>Long bio (for written features):</strong></p>
+      <div class="copy-block">
+        <p>Brian Hazzard is the designer and creative director behind Wandering Pine Press, an independent tabletop RPG publisher based in Virginia. Brian's games prioritize narrative over combat, accessibility over complexity, and character over crunch. His work includes the sci-fi TTRPG Terminus X7Z, the 1920s vigilante noir game In Alleys Dark, and the growing One Night Worlds line of single-session adventures spanning fantasy, steampunk, and more. <!-- ADD: Origin story, notable influences, additional bio detail. --> Brian lives in Virginia with his wife Crystal, their two sons, and two very lazy cats.</p>
+        <button class="copy-btn" onclick="copyText(this, 'Brian Hazzard is the designer and creative director behind Wandering Pine Press...')">Copy</button>
+      </div>
+
+      <!-- GAME DESCRIPTIONS -->
+      <h2>Game Descriptions</h2>
+
+      <div class="press-game campaign">
+        <div class="press-game-header">
+          <h4>Terminus X7Z: A Latticeverse Game</h4>
+          <span class="game-badge badge-campaign">Full Campaign</span>
+        </div>
+        <p>A sci-fi TTRPG inspired by shows like Star Trek, built around diplomacy, culture clash, and coexistence among the stars. In a future where humanity shares the galaxy with dozens of alien species, combat is rarely the answer — the real drama happens at the negotiating table. <!-- ADD: 1 more sentence of flavor. --></p>
+      </div>
+
+      <div class="press-game campaign">
+        <div class="press-game-header">
+          <h4>In Alleys Dark: A Rankston Reckoning</h4>
+          <span class="game-badge badge-campaign">Full Campaign</span>
+        </div>
+        <p>A 1920s vigilante noir TTRPG set in the corrupt city of Rankston. Players take on the role of a band of vigilantes — ordinary people who've decided that enough is enough — navigating a city where the law looks the other way and every decision carries moral weight. <!-- ADD: 1 more sentence. --></p>
+      </div>
+
+      <div class="press-game oneshot">
+        <div class="press-game-header">
+          <h4>One Night Worlds: The Fires of Chaterra</h4>
+          <span class="game-badge badge-oneshot">One Night World</span>
+        </div>
+        <p>A whimsical fairytale one-shot adventure featuring a sleeping king, a stolen throne, mushroom folk with ancient secrets, and a wicked witch with a very bad plan. Designed to run in a single session with no prep required.</p>
+      </div>
+
+      <div class="press-game oneshot">
+        <div class="press-game-header">
+          <h4>One Night Worlds: Tales of Clockwork & Chaos</h4>
+          <span class="game-badge badge-oneshot">One Night World</span>
+        </div>
+        <p>A steampunk one-shot about resistance and revolution. The Tocks — clockwork rulers — control the city. You're human, and you've had enough. A story about ingenuity, solidarity, and the cost of fighting for freedom.</p>
+      </div>
+
+      <div class="press-game oneshot">
+        <div class="press-game-header">
+          <h4>One Night Worlds: Terminus X7Z</h4>
+          <span class="game-badge badge-oneshot">One Night World</span>
+        </div>
+        <p>A self-contained single-session version of Terminus X7Z. All the interspecies intrigue of the Latticeverse, distilled into one night of play. Perfect for new players or groups who want something self-contained.</p>
+      </div>
+
+      <div class="press-game oneshot">
+        <div class="press-game-header">
+          <h4>One Night Worlds: In Alleys Dark</h4>
+          <span class="game-badge badge-oneshot">One Night World</span>
+        </div>
+        <p>A complete vigilante noir adventure in a single session. Fog-drenched streets, moral choices, and shadowy figures — no prep, no long commitment, all atmosphere.</p>
+      </div>
+
+      <!-- APPEARANCES -->
+      <h2>Podcast & Actual Play Appearances</h2>
+      <div class="appearances-list">
+        <div class="appearance-item">
+          <div>
+            <div class="show-name"><!-- ADD: Show Name --></div>
+            <div class="show-date"><!-- DATE --></div>
+          </div>
+          <a href="#">Listen →</a>
+        </div>
+        <!-- Duplicate the above block for each appearance -->
+      </div>
+      <p class="add-appearance"><!-- Add new appearances as they are scheduled or aired. --></p>
+
+      <!-- TALKING POINTS -->
+      <h2>Suggested Interview Talking Points</h2>
+      <p>These questions tend to lead to great conversations with Brian:</p>
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;">
+        <li style="padding:0.75rem 1rem;background:var(--parchment);border-radius:6px;font-size:0.92rem;color:#444;">What makes a narrative-first TTRPG different from a system like D&D?</li>
+        <li style="padding:0.75rem 1rem;background:var(--parchment);border-radius:6px;font-size:0.92rem;color:#444;">What inspired the Latticeverse setting of Terminus X7Z?</li>
+        <li style="padding:0.75rem 1rem;background:var(--parchment);border-radius:6px;font-size:0.92rem;color:#444;">What's the design philosophy behind the One Night Worlds line?</li>
+        <li style="padding:0.75rem 1rem;background:var(--parchment);border-radius:6px;font-size:0.92rem;color:#444;">How do you design games for busy families and non-traditional gaming schedules?</li>
+        <li style="padding:0.75rem 1rem;background:var(--parchment);border-radius:6px;font-size:0.92rem;color:#444;">What's it like running a publishing company as a husband and wife team?</li>
+        <li style="padding:0.75rem 1rem;background:var(--parchment);border-radius:6px;font-size:0.92rem;color:#444;"><!-- ADD: More talking points Brian feels comfortable with --></li>
+      </ul>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="press-sidebar">
+      <div class="press-contact-card">
+        <h4>Press Contact</h4>
+        <p>For interview requests, review copies, or media inquiries:</p>
+        <p><a href="mailto:WanderingPineGames@gmail.com">WanderingPineGames@gmail.com</a></p>
+        <p style="margin-top:0.75rem;">We typically respond within 2–3 business days.</p>
+      </div>
+      <div class="asset-card">
+        <h4>Media Assets</h4>
+        <p style="font-size:0.84rem;color:#666;margin-bottom:1rem;font-weight:300;">The following assets are available upon request or download:</p>
+        <ul class="asset-list">
+          <li><span>🌲</span> Company logo (PNG, SVG)</li>
+          <li><span>📸</span> Brian & Crystal headshots</li>
+          <li><span>🎮</span> Game cover art (when available)</li>
+          <li><span>📄</span> One-page company overview</li>
+        </ul>
+        <p class="asset-note">Email us at WanderingPineGames@gmail.com to request a media kit ZIP file. <!-- ADD: Or add a direct download link here when assets are ready. --></p>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+<script>
+  function copyText(btn, text) {
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

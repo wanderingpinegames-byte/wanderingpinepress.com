@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Frequently asked questions about Wandering Pine Press games, orders, and digital downloads."/>
+  <title>FAQ — Wandering Pine Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .faq-layout { display: grid; grid-template-columns: 1fr 260px; gap: 4rem; align-items: start; }
+    .faq-section { margin-bottom: 3rem; }
+    .faq-section h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--pine); margin-bottom: 1.25rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--parchment); display: flex; align-items: center; gap: 0.6rem; }
+    .faq-item { border-bottom: 1px solid var(--parchment); }
+    .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 1.1rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: 'Nunito', sans-serif; font-size: 0.97rem; font-weight: 600; color: var(--ink); transition: color 0.2s; }
+    .faq-question:hover { color: var(--rust); }
+    .faq-icon { font-size: 1.2rem; color: var(--moss); flex-shrink: 0; transition: transform 0.3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer { display: none; padding: 0 0 1.1rem; font-size: 0.93rem; line-height: 1.8; color: #555; font-weight: 300; }
+    .faq-answer a { color: var(--pine); font-weight: 600; text-decoration: none; }
+    .faq-answer a:hover { color: var(--rust); }
+    .faq-item.open .faq-answer { display: block; }
+
+    .faq-sidebar { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 1.25rem; }
+    .faq-nav { background: var(--parchment); border-radius: 10px; padding: 1.5rem; }
+    .faq-nav h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--pine); margin-bottom: 1rem; }
+    .faq-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .faq-nav a { color: #555; text-decoration: none; font-size: 0.88rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
+    .faq-nav a:hover { color: var(--rust); }
+    .still-stuck { background: var(--pine); color: var(--cream); border-radius: 10px; padding: 1.5rem; }
+    .still-stuck h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 0.5rem; }
+    .still-stuck p { font-size: 0.86rem; color: rgba(221,232,226,0.8); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; }
+    .still-stuck a { color: var(--moss); font-weight: 600; text-decoration: none; }
+
+    @media (max-width: 900px) { .faq-layout { grid-template-columns: 1fr; } .faq-sidebar { position: static; } }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Help & Support</span>
+    <h1>Frequently Asked Questions</h1>
+    <p>Answers to the most common questions about our games, digital downloads, and orders.</p>
+  </div>
+</div>
+
+<section>
+  <div class="faq-layout">
+    <div>
+
+      <!-- DIGITAL DOWNLOADS -->
+      <div class="faq-section" id="faq-digital">
+        <h2>📥 Digital Downloads</h2>
+        <div class="faq-item">
+          <button class="faq-question">How do I get my PDF after purchasing?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">All digital purchases are delivered through <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener">DriveThruRPG</a>. After completing your purchase, you'll receive an email from DriveThruRPG with a download link. You can also access all your purchases at any time by logging into your DriveThruRPG account.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do I need a DriveThruRPG account to buy?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">You can purchase as a guest, but creating a free DriveThruRPG account is recommended — it stores all your purchases so you can re-download them at any time from any device.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I print a PDF I purchased?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Yes! Our PDFs are designed to be printer-friendly. You're welcome to print personal copies for your own use. Please do not share or distribute the files.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">I lost access to my download. What do I do?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Log into your DriveThruRPG account and visit your Library — all your purchases are stored there permanently. If you're still having trouble, contact <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener">DriveThruRPG support</a> or email us at <a href="mailto:WanderingPineGames@gmail.com">WanderingPineGames@gmail.com</a>.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Will I get updates if the PDF is revised?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Yes. DriveThruRPG notifies you when a product you own has been updated, and you can download the latest version at no extra charge.</div>
+        </div>
+      </div>
+
+      <!-- PHYSICAL COPIES -->
+      <div class="faq-section" id="faq-physical">
+        <h2>📦 Physical Copies</h2>
+        <div class="faq-item">
+          <button class="faq-question">Do you sell physical books?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><!-- ADD: Update this when physical copies become available. For now: --> Physical copies are available for select titles through DriveThruRPG's print-on-demand service. Check each game's page for availability. We're working on expanding our physical catalog — sign up for our newsletter to be notified when new print options launch.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you ship internationally?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Physical print-on-demand orders through DriveThruRPG ship internationally. Shipping rates and times vary by location and are calculated at checkout on DriveThruRPG.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What is your return policy?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">For digital purchases, all sales are final as the product is delivered immediately upon purchase. For physical orders fulfilled through DriveThruRPG, please refer to <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener">DriveThruRPG's return policy</a>. If you received a damaged physical item, please contact us at <a href="mailto:WanderingPineGames@gmail.com">WanderingPineGames@gmail.com</a> and we'll make it right.</div>
+        </div>
+      </div>
+
+      <!-- GAMEPLAY -->
+      <div class="faq-section" id="faq-gameplay">
+        <h2>🎲 Gameplay Questions</h2>
+        <div class="faq-item">
+          <button class="faq-question">Do I need experience with TTRPGs to play your games?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">No experience needed! Our games are specifically designed to be easy to learn and start quickly. The One Night Worlds line is especially great for first-time players — everything you need is in the book and games are designed to run in a single session.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How many players do I need?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><!-- ADD: Fill in the actual player counts for each game. --> Each game lists its recommended player count on the product page. Generally, our games work well with 3–5 players including the game facilitator, but check the individual game pages for specifics.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How long does a session take?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">One Night Worlds adventures are designed to run in 2–4 hours — a single evening. Full campaign games like Terminus X7Z and In Alleys Dark are designed for ongoing play with sessions typically running 2–3 hours each.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do your games require a Game Master / Dungeon Master?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><!-- ADD: Clarify Brian's actual approach to GM vs GM-less. --> Our games use a facilitator role similar to a GM. <!-- ADD: More details on how this works in your specific games. --></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What dice do I need?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><!-- ADD: List the dice requirements for each game. --></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Are the One Night Worlds games connected to the full campaigns?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">The Terminus X7Z and In Alleys Dark One Night Worlds are set in the same universes as their full campaign counterparts — the Latticeverse and Rankston respectively. They're great standalone experiences and also perfect introductions to the full campaign games. The Fires of Chaterra and Tales of Clockwork & Chaos are standalone settings.</div>
+        </div>
+      </div>
+
+      <!-- FREE GAME -->
+      <div class="faq-section" id="faq-free">
+        <h2>🎁 Free Game & Newsletter</h2>
+        <div class="faq-item">
+          <button class="faq-question">How do I get my free copy of "What Really Happened"?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Sign up for our newsletter on the <a href="index.html#signup">homepage</a> and you'll receive a download link for <em>What Really Happened</em> in your welcome email. <!-- ADD: Update with specific delivery mechanism once your email platform is set up. --></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">What is "What Really Happened"?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><em>What Really Happened</em> is a TTRPG designed by Brian where players take on the role of characters who were actually present in the events of a favorite book — and believe the author got the story completely wrong. It's a fun, rules-light game that works with any story your group loves.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How often do you send emails?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">We keep our emails to the essentials — new game releases, major announcements, and occasionally behind-the-scenes content. No spam, and you can unsubscribe any time.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="faq-sidebar">
+      <div class="faq-nav">
+        <h4>Jump to Section</h4>
+        <ul>
+          <li><a href="#faq-digital">📥 Digital Downloads</a></li>
+          <li><a href="#faq-physical">📦 Physical Copies</a></li>
+          <li><a href="#faq-gameplay">🎲 Gameplay Questions</a></li>
+          <li><a href="#faq-free">🎁 Free Game & Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="still-stuck">
+        <h4>Still Stuck?</h4>
+        <p>Can't find the answer you're looking for? We're happy to help.</p>
+        <a href="contact.html">Contact Us →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+<script>
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      // Open this one if it wasn't already open
+      if (!isOpen) { item.classList.add('open'); }
+    });
+  });
+</script>
+</body>
+</html>

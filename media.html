@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Watch and listen — Wandering Pine Press podcast, YouTube channel, and actual play appearances."/>
+  <title>Media — Wandering Pine Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .media-tabs { display: flex; gap: 0.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .tab-btn { font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.6rem 1.4rem; border-radius: 4px; border: 2px solid var(--moss); background: transparent; color: var(--pine); cursor: pointer; transition: all 0.2s; }
+    .tab-btn:hover, .tab-btn.active { background: var(--pine); color: var(--cream); border-color: var(--pine); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .channel-header { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; background: var(--parchment); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; }
+    .channel-logo { width: 80px; height: 80px; border-radius: 50%; background: var(--pine); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+    .channel-info h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.3rem; }
+    .channel-info p { font-size: 0.92rem; color: var(--gray); line-height: 1.65; margin-bottom: 0.75rem; font-weight: 300; }
+    .channel-info a { font-size: 0.88rem; font-weight: 700; color: var(--pine); text-decoration: none; border-bottom: 2px solid var(--moss); padding-bottom: 1px; }
+    .channel-info a:hover { color: var(--rust); }
+
+    .media-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .media-card { background: var(--parchment); border-radius: 8px; overflow: hidden; transition: transform 0.2s; }
+    .media-card:hover { transform: translateY(-4px); }
+    .media-thumb { width: 100%; height: 160px; }
+    .media-body { padding: 1.25rem; }
+    .media-type { font-family: 'Special Elite', cursive; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rust); margin-bottom: 0.4rem; display: block; }
+    .media-title { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; line-height: 1.35; }
+    .media-meta { font-size: 0.78rem; color: #aaa; margin-bottom: 0.75rem; }
+    .media-link { font-size: 0.82rem; font-weight: 700; color: var(--pine-light); text-decoration: none; }
+    .media-link:hover { color: var(--rust); }
+
+    .appearances-section { background: var(--parchment); margin-top: 4rem; border-radius: 12px; padding: 2.5rem; }
+    .appearances-section h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .appearances-section > p { font-size: 0.92rem; color: var(--gray); margin-bottom: 1.75rem; font-weight: 300; }
+    .appearance-row { display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .appearance-row:last-child { border-bottom: none; }
+    .app-show { font-weight: 600; font-size: 0.92rem; }
+    .app-game { font-size: 0.8rem; color: var(--gray); margin-top: 0.2rem; }
+    .app-date { font-family: 'Special Elite', cursive; font-size: 0.72rem; letter-spacing: 0.1em; color: #aaa; white-space: nowrap; }
+    .app-link { font-size: 0.8rem; font-weight: 700; color: var(--pine-light); text-decoration: none; white-space: nowrap; }
+    .app-link:hover { color: var(--rust); }
+
+    @media (max-width: 900px) {
+      .media-grid { grid-template-columns: 1fr 1fr; }
+      .channel-header { grid-template-columns: 1fr; text-align: center; }
+      .channel-logo { margin: 0 auto; }
+    }
+    @media (max-width: 560px) {
+      .media-grid { grid-template-columns: 1fr; }
+      .appearance-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Watch & Listen</span>
+    <h1>Media</h1>
+    <p>Our podcast, YouTube channel, and every actual play and interview featuring Wandering Pine Press games — all in one place.</p>
+  </div>
+</div>
+
+<section>
+
+  <div class="media-tabs">
+    <button class="tab-btn active" data-tab="all">All Media</button>
+    <button class="tab-btn" data-tab="podcast">Podcast</button>
+    <button class="tab-btn" data-tab="youtube">YouTube</button>
+    <button class="tab-btn" data-tab="actualplay">Actual Plays</button>
+    <button class="tab-btn" data-tab="interviews">Interviews</button>
+  </div>
+
+  <div id="tab-all" class="tab-panel active">
+
+    <!-- PODCAST CHANNEL -->
+    <div class="channel-header">
+      <div class="channel-logo">🎙️</div>
+      <div class="channel-info">
+        <h3><!-- ADD: Your Podcast Name --></h3>
+        <p><!-- ADD: A sentence or two describing what your podcast is about. What do you cover? Game design? TTRPG culture? Behind-the-scenes of Wandering Pine Press? --></p>
+        <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener">Listen on YouTube @wanderingpinepress →</a>
+      </div>
+    </div>
+
+    <!-- YOUTUBE CHANNEL -->
+    <div class="channel-header">
+      <div class="channel-logo">▶️</div>
+      <div class="channel-info">
+        <h3>Wandering Pine Press on YouTube</h3>
+        <p><!-- ADD: What's on your YouTube channel? Game playthroughs, design vlogs, tutorials, actual plays? --></p>
+        <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener">Watch on YouTube @wanderingpinepress →</a>
+      </div>
+    </div>
+
+    <!-- MEDIA CARDS -->
+    <div class="media-grid">
+
+      <!-- Repeat and fill in this block for each episode/video/appearance -->
+      <div class="media-card" data-type="podcast">
+        <div class="media-thumb img-placeholder" style="height:160px;border-radius:0;">
+          <span class="ph-icon">🎙️</span>
+          <span>Episode Thumbnail</span>
+        </div>
+        <div class="media-body">
+          <span class="media-type">Podcast</span>
+          <h3 class="media-title"><!-- ADD: Episode Title --></h3>
+          <p class="media-meta"><!-- DATE --></p>
+          <a href="#" class="media-link">Listen Now →</a>
+        </div>
+      </div>
+
+      <div class="media-card" data-type="youtube">
+        <div class="media-thumb img-placeholder" style="height:160px;border-radius:0;">
+          <span class="ph-icon">▶️</span>
+          <span>Video Thumbnail</span>
+        </div>
+        <div class="media-body">
+          <span class="media-type">YouTube</span>
+          <h3 class="media-title"><!-- ADD: Video Title --></h3>
+          <p class="media-meta"><!-- DATE --></p>
+          <a href="https://www.youtube.com/@wanderingpinepress" class="media-link" target="_blank" rel="noopener">Watch Now →</a>
+        </div>
+      </div>
+
+      <div class="media-card" data-type="actualplay">
+        <div class="media-thumb img-placeholder" style="height:160px;border-radius:0;">
+          <span class="ph-icon">🎲</span>
+          <span>Actual Play Thumbnail</span>
+        </div>
+        <div class="media-body">
+          <span class="media-type">Actual Play</span>
+          <h3 class="media-title"><!-- ADD: Actual Play Title & Game --></h3>
+          <p class="media-meta"><!-- DATE --></p>
+          <a href="#" class="media-link">Watch Now →</a>
+        </div>
+      </div>
+
+      <!-- ADD: More media cards as content is published -->
+
+    </div>
+
+    <!-- APPEARANCES -->
+    <div class="appearances-section">
+      <h3>Podcast & Show Appearances</h3>
+      <p>Brian and Crystal on other people's shows — interviews, actual plays, and panel discussions.</p>
+
+      <div class="appearance-row">
+        <div>
+          <div class="app-show"><!-- ADD: Show Name --></div>
+          <div class="app-game"><!-- Game discussed --></div>
+        </div>
+        <div class="app-date"><!-- DATE --></div>
+        <a href="#" class="app-link">Listen →</a>
+      </div>
+
+      <!-- ADD: Duplicate the above row for each appearance -->
+
+    </div>
+
+  </div><!-- end tab-all -->
+
+  <!-- Individual tab panels (filtered by JS) -->
+  <div id="tab-podcast" class="tab-panel"></div>
+  <div id="tab-youtube" class="tab-panel"></div>
+  <div id="tab-actualplay" class="tab-panel"></div>
+  <div id="tab-interviews" class="tab-panel"></div>
+
+</section>
+
+<div id="site-footer"></div>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.dataset.tab;
+
+      if (target === 'all') {
+        document.getElementById('tab-all').classList.add('active');
+        ['podcast','youtube','actualplay','interviews'].forEach(function(t) {
+          document.getElementById('tab-' + t).classList.remove('active');
+        });
+      } else {
+        document.getElementById('tab-all').classList.remove('active');
+        ['podcast','youtube','actualplay','interviews'].forEach(function(t) {
+          document.getElementById('tab-' + t).classList.remove('active');
+        });
+        // Show filtered cards in the target panel
+        const panel = document.getElementById('tab-' + target);
+        panel.innerHTML = '';
+        const cards = document.querySelectorAll('#tab-all .media-card[data-type="' + target + '"]');
+        if (cards.length === 0) {
+          panel.innerHTML = '<p style="color:#aaa;font-style:italic;padding:2rem 0;">No ' + target + ' content yet — check back soon!</p>';
+        } else {
+          const grid = document.createElement('div');
+          grid.className = 'media-grid';
+          cards.forEach(function(card) { grid.appendChild(card.cloneNode(true)); });
+          panel.appendChild(grid);
+        }
+        panel.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>

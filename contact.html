@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Get in touch with Wandering Pine Press — general inquiries, press, and wholesale."/>
+  <title>Contact — Wandering Pine Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: start; }
+    .contact-form-wrap { background: var(--parchment); border-radius: 12px; padding: 2.5rem; }
+    .contact-form-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .contact-form-wrap p { font-size: 0.92rem; color: var(--gray); margin-bottom: 1.75rem; font-weight: 300; line-height: 1.65; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: var(--pine); margin-bottom: 0.4rem; text-transform: uppercase; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.8rem 1rem;
+      border: 2px solid var(--mist); border-radius: 4px;
+      font-family: 'Nunito', sans-serif; font-size: 0.92rem;
+      background: var(--cream); color: var(--ink);
+      transition: border-color 0.2s; outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--pine); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    #form-success { display: none; background: rgba(138,171,126,0.15); border: 2px solid var(--moss); border-radius: 6px; padding: 1rem 1.25rem; color: var(--pine); font-weight: 600; font-size: 0.92rem; margin-top: 1rem; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .info-card { background: var(--parchment); border-radius: 10px; padding: 1.5rem; }
+    .info-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--pine); margin-bottom: 0.5rem; }
+    .info-card p { font-size: 0.9rem; color: #555; line-height: 1.65; font-weight: 300; }
+    .info-card a { color: var(--pine); font-weight: 600; text-decoration: none; }
+    .info-card a:hover { color: var(--rust); }
+    .info-card .icon { font-size: 1.5rem; margin-bottom: 0.6rem; display: block; }
+    .response-note { font-size: 0.8rem; color: #aaa; margin-top: 0.5rem; font-style: italic; }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Get in Touch</span>
+    <h1>Contact Us</h1>
+    <p>Questions, press inquiries, wholesale requests, or just want to say hello — we'd love to hear from you.</p>
+  </div>
+</div>
+
+<section>
+  <div class="contact-layout">
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <h2>Send Us a Message</h2>
+      <p>Fill out the form and we'll get back to you within 2–3 business days.</p>
+      <!--
+        TODO: To make this form work, either:
+        1. Add action="https://formspree.io/f/YOUR_FORM_ID" method="POST" to the form tag
+           and sign up at formspree.io (free tier available), OR
+        2. Use Netlify Forms if hosting on Netlify (add data-netlify="true"), OR
+        3. Wire up to your preferred form handler.
+      -->
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Brian" required/>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Hazzard" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required/>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">Select a topic…</option>
+            <option value="general">General Question</option>
+            <option value="press">Press / Media Inquiry</option>
+            <option value="wholesale">Wholesale / Retail</option>
+            <option value="rules">Rules Question</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+        <div id="form-success">✓ Message sent! We'll be in touch within 2–3 business days.</div>
+      </form>
+    </div>
+
+    <!-- INFO CARDS -->
+    <div class="contact-info">
+      <div class="info-card">
+        <span class="icon">✉️</span>
+        <h4>Email Us Directly</h4>
+        <p>For all inquiries including press, wholesale, and general questions:<br/>
+        <a href="mailto:WanderingPineGames@gmail.com">WanderingPineGames@gmail.com</a></p>
+        <p class="response-note">We respond within 2–3 business days.</p>
+      </div>
+      <div class="info-card">
+        <span class="icon">🎙️</span>
+        <h4>Press & Podcast Inquiries</h4>
+        <p>Want to feature Brian on your podcast or have Wandering Pine Press games on your show? We'd love to connect. Email us or visit our <a href="press.html">Press Kit page</a> for resources.</p>
+      </div>
+      <div class="info-card">
+        <span class="icon">🎮</span>
+        <h4>Purchase Support</h4>
+        <p>All digital purchases are handled through <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener">DriveThruRPG</a>. For issues with orders, please contact DriveThruRPG support directly, or email us if you need further help.</p>
+      </div>
+      <div class="info-card">
+        <span class="icon">📱</span>
+        <h4>Follow Along</h4>
+        <p>
+          <a href="https://www.instagram.com/wanderingpinepress" target="_blank" rel="noopener">Instagram @wanderingpinepress</a><br/>
+          <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener">YouTube @wanderingpinepress</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+</body>
+</html>

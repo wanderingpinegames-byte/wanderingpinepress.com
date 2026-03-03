@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Meet the Hazzards — the husband and wife team behind Wandering Pine Press."/>
+  <title>About Us — Wandering Pine Press</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: start; }
+    .about-photo { border-radius: 12px; overflow: hidden; }
+    .about-body h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1rem; color: var(--pine); }
+    .about-body p { font-size: 0.97rem; line-height: 1.85; color: #444; font-weight: 300; margin-bottom: 1.1rem; }
+    .about-body p strong { color: var(--ink); font-weight: 700; }
+
+    .beliefs { background: var(--pine); padding: 5rem 6vw; }
+    .beliefs .section-label { color: var(--moss); }
+    .beliefs .section-heading { color: var(--cream); margin-bottom: 2.5rem; }
+    .beliefs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .belief-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(138,171,126,0.2); border-radius: 8px; padding: 1.75rem; }
+    .belief-card .icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .belief-card h4 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .belief-card p { font-size: 0.88rem; color: rgba(221,232,226,0.8); line-height: 1.65; font-weight: 300; }
+
+    .team { background: var(--parchment); }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
+    .team-card { background: var(--cream); border-radius: 10px; overflow: hidden; }
+    .team-photo { width: 100%; height: 220px; }
+    .team-body { padding: 1.75rem; }
+    .team-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.2rem; }
+    .team-role { font-family: 'Special Elite', cursive; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; display: block; }
+    .team-bio { font-size: 0.92rem; line-height: 1.75; color: #555; font-weight: 300; }
+
+    @media (max-width: 900px) {
+      .about-layout { grid-template-columns: 1fr; }
+      .beliefs-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-label">Our Story</span>
+    <h1>Meet the Hazzards</h1>
+    <p>A husband and wife team from Virginia, making games that help people tell stories together.</p>
+  </div>
+</div>
+
+<!-- MAIN ABOUT -->
+<section>
+  <div class="about-layout">
+    <div class="about-photo">
+      <div class="img-placeholder" style="height:420px;border-radius:12px;">
+        <span class="ph-icon">📸</span>
+        <span>Team Photo Coming Soon</span>
+      </div>
+    </div>
+    <div class="about-body">
+      <h2>We're the Hazzards</h2>
+      <p>We're the husband and wife team behind Wandering Pine Press. We live in Virginia with two wild sons, two lazy cats, and a lot of love. As an independent tabletop RPG publisher, we focus on games that help players collaborate to tell compelling character-driven stories. Thank you for taking an interest in our craft.</p>
+      <p><!-- ADD: More about how Wandering Pine Press got started. When did Brian start designing? When did you decide to publish? What was the moment you knew this was the thing? --></p>
+      <p><!-- ADD: What does the company mean to you as a family? What do you hope players take away from your games? --></p>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="beliefs">
+  <span class="section-label">What We Stand For</span>
+  <h2 class="section-heading">We Believe Tabletop RPGs Should…</h2>
+  <div class="beliefs-grid">
+    <div class="belief-card">
+      <div class="icon">📖</div>
+      <h4>Be Easy to Start</h4>
+      <p>No 300-page rulebooks. No weeks of prep. Wandering Pine Press games are designed so you can open the box, gather your friends, and play.</p>
+    </div>
+    <div class="belief-card">
+      <div class="icon">🎭</div>
+      <h4>Tell Meaningful Stories</h4>
+      <p>Mechanics should serve the story, not the other way around. We build systems that ask interesting questions and then get out of the way.</p>
+    </div>
+    <div class="belief-card">
+      <div class="icon">⏱️</div>
+      <h4>Fit Into Real, Busy Lives</h4>
+      <p>From full campaigns to single-session adventures, every game we make is designed around the reality that your time is precious.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <span class="section-label">The Team</span>
+  <h2 class="section-heading">The People Behind the Games</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo img-placeholder" style="height:220px;border-radius:0;">
+        <span class="ph-icon">📸</span>
+        <span>Brian's Photo</span>
+      </div>
+      <div class="team-body">
+        <h3 class="team-name">Brian Hazzard</h3>
+        <span class="team-role">Designer & Creative Director</span>
+        <p class="team-bio">Brian is the creative force behind the mechanical and narrative systems in our games. As a collector of hobbies, he has studied boardgames, gamebooks, RPGs, papercraft, and magic tricks, and is always searching for another source of obsession.</p>
+        <p class="team-bio" style="margin-top:0.75rem;"><!-- ADD: More about Brian's design philosophy, what games or media inspired him, fun facts. --></p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo img-placeholder" style="height:220px;border-radius:0;">
+        <span class="ph-icon">📸</span>
+        <span>Crystal's Photo</span>
+      </div>
+      <div class="team-body">
+        <h3 class="team-name">Crystal Hazzard</h3>
+        <span class="team-role">Editor & Layout Designer</span>
+        <p class="team-bio">Crystal is the steady and disciplined hand, and the keen eye behind our design and layout. As a multimedia artist with a particular mastery of crochet, she has a knack for simple and beautiful aesthetics.</p>
+        <p class="team-bio" style="margin-top:0.75rem;"><!-- ADD: More about Crystal's background, creative influences, fun facts. --></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
+</body>
+</html>
