@@ -3,54 +3,77 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="News, design diaries, and updates from Wandering Pine Press."/>
+  <meta name="description" content="Design diaries, release news, and exclusive content from Wandering Pine Press."/>
   <title>Blog & News — Wandering Pine Press</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    .blog-layout { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: start; }
+    .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
 
-    /* Posts */
-    .post-list { display: flex; flex-direction: column; gap: 2rem; }
-    .post-card { background: var(--parchment); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 200px 1fr; transition: transform 0.2s; }
-    .post-card:hover { transform: translateY(-3px); }
-    .post-thumb { height: 100%; min-height: 160px; }
+    .posts-section-label { font-family: 'Special Elite', cursive; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--moss); margin-bottom: 1.25rem; display: block; }
+    .posts-section-heading { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 1.75rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--mist); }
+
+    .post-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    /* Public post card */
+    .post-card { background: var(--parchment); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 180px 1fr; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; }
+    .post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .post-thumb { min-height: 160px; }
     .post-body { padding: 1.5rem; }
-    .post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
-    .post-category { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px; background: rgba(45,74,62,0.1); color: var(--pine); }
+    .post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.65rem; flex-wrap: wrap; }
+    .post-category { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px; background: rgba(45,74,62,0.1); color: var(--pine); }
     .post-date { font-family: 'Special Elite', cursive; font-size: 0.7rem; letter-spacing: 0.1em; color: #aaa; }
-    .post-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.5rem; line-height: 1.35; }
-    .post-title a { text-decoration: none; color: var(--ink); transition: color 0.2s; }
-    .post-title a:hover { color: var(--rust); }
-    .post-excerpt { font-size: 0.88rem; line-height: 1.65; color: #666; margin-bottom: 0.9rem; font-weight: 300; }
-    .post-link { font-size: 0.82rem; font-weight: 700; color: var(--pine-light); text-decoration: none; }
-    .post-link:hover { color: var(--rust); }
+    .post-title { font-family: 'Playfair Display', serif; font-size: 1.12rem; margin-bottom: 0.5rem; line-height: 1.35; color: var(--ink); }
+    .post-excerpt { font-size: 0.87rem; line-height: 1.68; color: #666; margin-bottom: 0.9rem; font-weight: 300; }
+    .post-read-more { font-size: 0.82rem; font-weight: 700; color: var(--pine-light); }
+
+    /* Locked Workshop post card */
+    .post-card-locked { background: var(--parchment); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 180px 1fr; }
+    .locked-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; background: var(--gold); color: #fff; margin-bottom: 0.65rem; }
+    .post-card-locked .post-title { opacity: 0.75; }
+    .post-card-locked .post-excerpt { font-style: italic; color: #999; }
+    .unlock-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 700; color: var(--rust); text-decoration: none; transition: color 0.2s; }
+    .unlock-link:hover { color: #a84d22; }
+
+    .posts-divider { margin: 3rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.08); }
+
+    /* Workshop CTA banner */
+    .workshop-cta { background: var(--pine); border-radius: 12px; padding: 2.5rem; margin-top: 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; }
+    .workshop-cta-text .eyebrow { font-family: 'Special Elite', cursive; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--moss); display: block; margin-bottom: 0.5rem; }
+    .workshop-cta-text h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 0.6rem; font-style: italic; }
+    .workshop-cta-text p { font-size: 0.88rem; color: rgba(221,232,226,0.8); line-height: 1.68; font-weight: 300; }
+    .workshop-cta-text ul { list-style: none; padding: 0; margin: 0.75rem 0 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .workshop-cta-text ul li { font-size: 0.85rem; color: var(--moss); font-weight: 600; }
+    .workshop-cta-btn { display: inline-block; padding: 0.9rem 1.75rem; background: var(--gold); color: var(--ink); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.92rem; border-radius: 6px; text-decoration: none; white-space: nowrap; transition: background 0.2s, transform 0.15s; flex-shrink: 0; }
+    .workshop-cta-btn:hover { background: #b8862e; transform: translateY(-2px); }
 
     /* Sidebar */
     .blog-sidebar { position: sticky; top: 84px; display: flex; flex-direction: column; gap: 1.5rem; }
     .sidebar-widget { background: var(--parchment); border-radius: 10px; padding: 1.5rem; }
     .sidebar-widget h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--pine); margin-bottom: 1rem; border-bottom: 2px solid var(--mist); padding-bottom: 0.5rem; }
+    .workshop-widget { background: var(--pine); color: var(--cream); }
+    .workshop-widget h4 { color: var(--gold); border-bottom-color: rgba(138,171,126,0.25); }
+    .workshop-widget p { font-size: 0.85rem; color: rgba(221,232,226,0.8); line-height: 1.65; margin-bottom: 0.5rem; font-weight: 300; }
+    .workshop-widget .perks { list-style: none; padding: 0; margin: 0.75rem 0 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .workshop-widget .perks li { font-size: 0.82rem; color: var(--moss); font-weight: 600; }
+    .workshop-widget a.btn-workshop { display: block; text-align: center; padding: 0.8rem; background: var(--gold); color: var(--ink); font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .workshop-widget a.btn-workshop:hover { background: #b8862e; }
+    .signup-widget { background: var(--pine); color: var(--cream); }
+    .signup-widget h4 { color: var(--gold); border-bottom-color: rgba(138,171,126,0.3); }
+    .signup-widget p { font-size: 0.86rem; color: rgba(221,232,226,0.8); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; }
+    .signup-widget a.btn-newsletter { display: block; text-align: center; padding: 0.8rem; background: var(--rust); color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .signup-widget a.btn-newsletter:hover { background: #a84d22; }
     .category-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
     .category-list a { color: #555; text-decoration: none; font-size: 0.88rem; display: flex; justify-content: space-between; transition: color 0.2s; }
     .category-list a:hover { color: var(--rust); }
     .category-count { color: #aaa; font-size: 0.8rem; }
-    .signup-widget { background: var(--pine); color: var(--cream); }
-    .signup-widget h4 { color: var(--gold); border-bottom-color: rgba(138,171,126,0.3); }
-    .signup-widget p { font-size: 0.86rem; color: rgba(221,232,226,0.8); line-height: 1.65; margin-bottom: 1rem; font-weight: 300; }
-    .signup-widget input { width: 100%; padding: 0.7rem 1rem; border: 2px solid var(--moss); border-radius: 4px; font-family: 'Nunito', sans-serif; font-size: 0.88rem; background: transparent; color: var(--cream); outline: none; margin-bottom: 0.6rem; }
-    .signup-widget input::placeholder { color: rgba(221,232,226,0.4); }
-    .signup-widget button { width: 100%; }
 
-    /* Placeholder post notice */
-    .post-placeholder { background: var(--parchment); border: 2px dashed var(--moss); border-radius: 10px; padding: 3rem 2rem; text-align: center; color: #aaa; }
-    .post-placeholder h3 { font-family: 'Playfair Display', serif; color: var(--pine); margin-bottom: 0.5rem; }
-    .post-placeholder p { font-size: 0.9rem; line-height: 1.65; max-width: 400px; margin: 0 auto; }
-
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .blog-layout { grid-template-columns: 1fr; }
       .blog-sidebar { position: static; }
-      .post-card { grid-template-columns: 1fr; }
+      .post-card, .post-card-locked { grid-template-columns: 1fr; }
       .post-thumb { min-height: 180px; }
+      .workshop-cta { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -61,73 +84,233 @@
   <div class="page-hero-inner">
     <span class="section-label">From the Press</span>
     <h1>Blog & News</h1>
-    <p>Design diaries, release announcements, actual play recaps, and everything happening at Wandering Pine Press.</p>
+    <p>Design diaries, release announcements, and behind-the-scenes thoughts from Brian Hazzard and Wandering Pine Press.</p>
   </div>
 </div>
 
 <section>
   <div class="blog-layout">
 
-    <div class="post-list">
+    <div>
 
-      <!-- PLACEHOLDER — Replace with real posts when ready -->
-      <div class="post-placeholder">
-        <h3>Posts Coming Soon</h3>
-        <p>We're getting ready to launch — check back soon for design diaries, release news, podcast appearances, and more. In the meantime, <a href="index.html#signup" style="color:var(--pine);font-weight:600;">sign up for our newsletter</a> and we'll let you know when new posts go live.</p>
+      <!-- ── FREE POSTS ──
+           To add a new public post: copy a post-card block, paste it at the
+           TOP of this list, and update the title, date, excerpt, and href.
+      -->
+      <span class="posts-section-label">Latest from the Blog</span>
+      <h2 class="posts-section-heading">Free Posts</h2>
+
+      <div class="post-list">
+
+        <a class="post-card" href="https://buymeacoffee.com/brianhazzard/the-four-non-negotiables-solo-rpg-design" target="_blank" rel="noopener">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0;">
+            <span class="ph-icon">📝</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-category">Design Diary</span>
+              <span class="post-date">February 13, 2026</span>
+            </div>
+            <h2 class="post-title">Four Non-Negotiables of Solo RPG Design</h2>
+            <p class="post-excerpt"><!-- ADD: 2-3 sentence excerpt from this post --> Every solo TTRPG Brian designs comes back to four core principles — the things he refuses to compromise on, no matter the game.</p>
+            <span class="post-read-more">Read on Buy Me a Coffee →</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="https://buymeacoffee.com/brianhazzard/creative-journal-3" target="_blank" rel="noopener">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0;">
+            <span class="ph-icon">📓</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-category">Creative Journal</span>
+              <span class="post-date">January 23, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #3</h2>
+            <p class="post-excerpt"><!-- ADD: 2-3 sentence excerpt from this post --> A look inside Brian's creative process — what's being designed, what's clicking, and what's being thrown out entirely.</p>
+            <span class="post-read-more">Read on Buy Me a Coffee →</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="https://buymeacoffee.com/brianhazzard/the-day-i-punched-through-the-moon" target="_blank" rel="noopener">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0;">
+            <span class="ph-icon">🌕</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="post-category">Personal</span>
+              <span class="post-date">January 17, 2026</span>
+            </div>
+            <h2 class="post-title">The Day I Punched Through The Moon</h2>
+            <p class="post-excerpt"><!-- ADD: 2-3 sentence excerpt from this post --> Brian shares the story behind one of those creative breakthroughs that changes how you see everything you're building.</p>
+            <span class="post-read-more">Read on Buy Me a Coffee →</span>
+          </div>
+        </a>
+
       </div>
 
-      <!--
-      === HOW TO ADD A BLOG POST ===
-      Copy this block and fill in the details:
+      <hr class="posts-divider"/>
 
-      <article class="post-card">
-        <div class="post-thumb img-placeholder" style="min-height:180px;border-radius:0;">
-          <span class="ph-icon">📝</span>
-          <span>Post Image</span>
-        </div>
-        <div class="post-body">
-          <div class="post-meta">
-            <span class="post-category">CATEGORY</span>
-            <span class="post-date">MONTH YEAR</span>
-          </div>
-          <h2 class="post-title"><a href="blog-post.html">POST TITLE</a></h2>
-          <p class="post-excerpt">Post excerpt — 2-3 sentences describing what the post is about.</p>
-          <a href="blog-post.html" class="post-link">Read More →</a>
-        </div>
-      </article>
-
-      Categories to use: New Release, Design Diary, Podcast, Actual Play, Company News, Behind the Scenes
+      <!-- ── WANDERING WORKSHOP POSTS ──
+           To add a new locked post: copy a post-card-locked block, paste it at the
+           TOP of this list, and update the title and date. Keep excerpts vague.
       -->
+      <span class="posts-section-label">Members Only</span>
+      <h2 class="posts-section-heading">The Wandering Workshop</h2>
+
+      <div class="post-list">
+
+        <div class="post-card-locked">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0; background:linear-gradient(135deg,#2d4a3e,#1a2e24);">
+            <span class="ph-icon">🔒</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="locked-badge">🔒 Workshop Exclusive</span>
+              <span class="post-date">March 2, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #7: The Assignment</h2>
+            <p class="post-excerpt">This post is exclusive to Wandering Workshop members. Join for $5/month to read this and all past creative journals.</p>
+            <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="unlock-link">🔓 Unlock with Wandering Workshop →</a>
+          </div>
+        </div>
+
+        <div class="post-card-locked">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0; background:linear-gradient(135deg,#2d4a3e,#1a2e24);">
+            <span class="ph-icon">🔒</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="locked-badge">🔒 Workshop Exclusive</span>
+              <span class="post-date">February 21, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #6</h2>
+            <p class="post-excerpt">This post is exclusive to Wandering Workshop members. Join for $5/month to read this and all past creative journals.</p>
+            <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="unlock-link">🔓 Unlock with Wandering Workshop →</a>
+          </div>
+        </div>
+
+        <div class="post-card-locked">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0; background:linear-gradient(135deg,#2d4a3e,#1a2e24);">
+            <span class="ph-icon">🔒</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="locked-badge">🔒 Workshop Exclusive</span>
+              <span class="post-date">February 7, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #5</h2>
+            <p class="post-excerpt">This post is exclusive to Wandering Workshop members. Join for $5/month to read this and all past creative journals.</p>
+            <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="unlock-link">🔓 Unlock with Wandering Workshop →</a>
+          </div>
+        </div>
+
+        <div class="post-card-locked">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0; background:linear-gradient(135deg,#2d4a3e,#1a2e24);">
+            <span class="ph-icon">🔒</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="locked-badge">🔒 Workshop Exclusive</span>
+              <span class="post-date">January 30, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #4</h2>
+            <p class="post-excerpt">This post is exclusive to Wandering Workshop members. Join for $5/month to read this and all past creative journals.</p>
+            <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="unlock-link">🔓 Unlock with Wandering Workshop →</a>
+          </div>
+        </div>
+
+        <div class="post-card-locked">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0; background:linear-gradient(135deg,#2d4a3e,#1a2e24);">
+            <span class="ph-icon">🔒</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="locked-badge">🔒 Workshop Exclusive</span>
+              <span class="post-date">January 17, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #2</h2>
+            <p class="post-excerpt">This post is exclusive to Wandering Workshop members. Join for $5/month to read this and all past creative journals.</p>
+            <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="unlock-link">🔓 Unlock with Wandering Workshop →</a>
+          </div>
+        </div>
+
+        <div class="post-card-locked">
+          <div class="post-thumb img-placeholder" style="min-height:160px; border-radius:0; background:linear-gradient(135deg,#2d4a3e,#1a2e24);">
+            <span class="ph-icon">🔒</span>
+          </div>
+          <div class="post-body">
+            <div class="post-meta">
+              <span class="locked-badge">🔒 Workshop Exclusive</span>
+              <span class="post-date">January 9, 2026</span>
+            </div>
+            <h2 class="post-title">Creative Journal #1</h2>
+            <p class="post-excerpt">This post is exclusive to Wandering Workshop members. Join for $5/month to read this and all past creative journals.</p>
+            <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="unlock-link">🔓 Unlock with Wandering Workshop →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WORKSHOP JOIN CTA -->
+      <div class="workshop-cta">
+        <div class="workshop-cta-text">
+          <span class="eyebrow">Join the Community</span>
+          <h3>The Wandering Workshop</h3>
+          <p>Get behind-the-scenes access to Brian's creative process — design diaries, work-in-progress content, and occasional digital downloads. All for less than a cup of coffee a month.</p>
+          <ul>
+            <li>✦ Support Brian's work directly</li>
+            <li>✦ Exclusive Creative Journal — Brian's design diary</li>
+            <li>✦ Occasional digital downloads</li>
+            <li>✦ Access to all 6 past exclusive posts</li>
+          </ul>
+        </div>
+        <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="workshop-cta-btn">Join for $5/month →</a>
+      </div>
 
     </div>
 
+    <!-- ── SIDEBAR ── -->
     <aside class="blog-sidebar">
+
+      <div class="sidebar-widget workshop-widget">
+        <h4>The Wandering Workshop</h4>
+        <p>Support Brian's work and get exclusive behind-the-scenes content, creative journals, and digital downloads.</p>
+        <ul class="perks">
+          <li>✦ Creative journals</li>
+          <li>✦ Design diaries</li>
+          <li>✦ Digital downloads</li>
+        </ul>
+        <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="btn-workshop">Join for $5/month →</a>
+      </div>
+
+      <div class="sidebar-widget signup-widget">
+        <h4>Free Game + Newsletter</h4>
+        <p>Get <em style="color:var(--gold);">What Really Happened</em> free — plus new release news straight to your inbox.</p>
+        <a href="index.html#signup" class="btn-newsletter">Get the Free Game →</a>
+      </div>
+
       <div class="sidebar-widget">
-        <h4>Categories</h4>
+        <h4>Browse by Topic</h4>
         <ul class="category-list">
+          <li><a href="#">Design Diary <span class="category-count">1</span></a></li>
+          <li><a href="#">Creative Journal <span class="category-count">7 (6 🔒)</span></a></li>
+          <li><a href="#">Personal <span class="category-count">1</span></a></li>
           <li><a href="#">New Releases <span class="category-count">—</span></a></li>
-          <li><a href="#">Design Diaries <span class="category-count">—</span></a></li>
-          <li><a href="#">Podcast <span class="category-count">—</span></a></li>
           <li><a href="#">Actual Play <span class="category-count">—</span></a></li>
-          <li><a href="#">Company News <span class="category-count">—</span></a></li>
         </ul>
       </div>
-      <div class="sidebar-widget signup-widget">
-        <h4>Stay in the Loop</h4>
-        <p>Get new posts and release news straight to your inbox.</p>
-        <div class="signup-form" style="flex-direction:column;gap:0.6rem;margin-top:0;">
-          <input type="email" placeholder="your@email.com" aria-label="Email address"/>
-          <button type="button" class="btn-primary" style="width:100%;">Subscribe</button>
-        </div>
-      </div>
+
       <div class="sidebar-widget">
         <h4>Follow Along</h4>
         <div style="display:flex;flex-direction:column;gap:0.6rem;">
-          <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.6rem;color:var(--pine);text-decoration:none;font-size:0.88rem;font-weight:600;">▶️ YouTube @wanderingpinepress</a>
-          <a href="https://www.instagram.com/wanderingpinepress" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.6rem;color:var(--pine);text-decoration:none;font-size:0.88rem;font-weight:600;">📸 Instagram @wanderingpinepress</a>
+          <a href="https://buymeacoffee.com/brianhazzard" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.6rem;color:var(--pine);text-decoration:none;font-size:0.88rem;font-weight:600;">☕ Buy Me a Coffee</a>
+          <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.6rem;color:var(--pine);text-decoration:none;font-size:0.88rem;font-weight:600;">▶️ YouTube</a>
+          <a href="https://www.instagram.com/wanderingpinepress" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.6rem;color:var(--pine);text-decoration:none;font-size:0.88rem;font-weight:600;">📸 Instagram</a>
           <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.6rem;color:var(--pine);text-decoration:none;font-size:0.88rem;font-weight:600;">🎮 DriveThruRPG</a>
         </div>
       </div>
+
     </aside>
 
   </div>
