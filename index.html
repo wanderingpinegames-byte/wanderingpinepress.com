@@ -7,7 +7,86 @@
   <title>Wandering Pine Press — Stories Worth Playing</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
+  <!-- Brevo form stylesheet -->
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css"/>
   <style>
+    /* ── Override Brevo defaults to match WPP design ── */
+    .sib-form { background: transparent !important; padding: 0 !important; }
+    .sib-form-container { padding: 0 !important; }
+    #sib-container {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      text-align: left !important;
+    }
+    /* Hide Brevo's built-in heading + subtext — we have our own above the form */
+    #sib-container .sib-form-block:first-child,
+    #sib-container .sib-form-block:nth-child(2) { display: none !important; }
+    /* Input field */
+    #sib-container .input {
+      width: 100% !important;
+      padding: 0.9rem 1.1rem !important;
+      border: 2px solid rgba(138,171,126,0.35) !important;
+      border-radius: 6px !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-size: 0.95rem !important;
+      background: rgba(255,255,255,0.07) !important;
+      color: #f5f0e8 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      transition: border-color 0.2s !important;
+    }
+    #sib-container .input:focus {
+      border-color: #8aab7e !important;
+      background: rgba(255,255,255,0.11) !important;
+    }
+    #sib-container .input::placeholder { color: rgba(221,232,226,0.35) !important; }
+    /* Hide helper text below input */
+    #sib-container .entry__specification { display: none !important; }
+    /* Label above input */
+    #sib-container .entry__label {
+      font-family: 'Special Elite', cursive !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase !important;
+      color: #8aab7e !important;
+      font-weight: normal !important;
+      margin-bottom: 0.5rem !important;
+    }
+    /* Submit button */
+    #sib-container .sib-form-block__button {
+      width: 100% !important;
+      padding: 0.95rem 1.5rem !important;
+      background: #c05c2a !important;
+      color: #fff !important;
+      border: none !important;
+      border-radius: 6px !important;
+      font-family: 'Nunito', sans-serif !important;
+      font-size: 0.97rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      cursor: pointer !important;
+      transition: background 0.2s, transform 0.15s !important;
+      text-transform: none !important;
+    }
+    #sib-container .sib-form-block__button:hover {
+      background: #a84d22 !important;
+      transform: translateY(-2px) !important;
+    }
+    /* Success message */
+    #success-message {
+      background: rgba(138,171,126,0.12) !important;
+      border-color: #8aab7e !important;
+      border-radius: 6px !important;
+      color: #8aab7e !important;
+      max-width: 100% !important;
+    }
+    /* Error message */
+    #error-message { max-width: 100% !important; border-radius: 6px !important; }
+    /* Tighten row padding */
+    #sib-container form > div { padding: 4px 0 !important; }
     /* --- Hero --- */
     .hero {
       min-height: calc(100vh - 64px);
@@ -56,7 +135,7 @@
       align-items: center; justify-content: center;
       padding: 1.25rem; text-align: center;
     }
-    .hero-card img ~ .card-fallback { display: none; } /* hide fallback if image loaded */
+    .hero-card img ~ .card-fallback { display: none; }
 
     .card-ornament { font-size: 1.8rem; margin-bottom: 0.6rem; opacity: 0.8; }
     .card-label { font-family: 'Special Elite', cursive; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--moss); }
@@ -69,7 +148,7 @@
       position: absolute; bottom: 0; left: 0; right: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 60%);
       padding: 1rem 0.9rem 0.85rem;
-      display: none; /* hidden by default — JS shows it when image loads */
+      display: none;
     }
     .hero-card.has-image .card-cover-overlay { display: block; }
     .hero-card.has-image .card-fallback { display: none; }
@@ -77,7 +156,7 @@
     .card-cover-overlay .card-title { font-family: 'Playfair Display', serif; font-size: 0.9rem; color: var(--cream); line-height: 1.25; }
     .card-cover-overlay .card-genre { font-size: 0.68rem; color: rgba(221,232,226,0.75); font-style: italic; margin-top: 0.15rem; }
 
-    /* Stack positions — JS cycles these classes */
+    /* Stack positions */
     .hero-card.pos-front  { transform: rotate(-1deg) translate(10px, 0px);   opacity: 1;    z-index: 3; box-shadow: 0 16px 48px rgba(0,0,0,0.55); }
     .hero-card.pos-mid    { transform: rotate(4deg)  translate(28px, 14px);  opacity: 0.85; z-index: 2; }
     .hero-card.pos-back   { transform: rotate(-6deg) translate(-16px, 22px); opacity: 0.65; z-index: 1; }
@@ -132,21 +211,59 @@
     .news-link { font-size: 0.8rem; font-weight: 700; color: var(--pine-light); text-decoration: none; }
     .news-link:hover { color: var(--rust); }
 
-    /* Signup */
-    .signup { background: var(--parchment); text-align: center; position: relative; overflow: hidden; }
-    .signup-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20rem; opacity: 0.03; pointer-events: none; user-select: none; }
+    /* Signup — Brevo-ready two-column design */
+    .signup { background: var(--pine); position: relative; overflow: hidden; }
+    .signup-bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 20rem; opacity: 0.04; pointer-events: none; user-select: none; }
     .signup-inner { position: relative; z-index: 1; }
-    .signup .section-heading { margin: 0 auto 0.6rem; }
-    .signup .section-sub { margin: 0 auto; }
-    .signup-incentive { display: inline-flex; align-items: flex-start; gap: 0.75rem; background: var(--pine); color: var(--cream); border-radius: 8px; padding: 1rem 1.5rem; margin: 1.75rem auto; font-size: 0.9rem; line-height: 1.55; max-width: 520px; text-align: left; }
-    .signup-incentive .gift { font-size: 1.5rem; flex-shrink: 0; margin-top: 0.1rem; }
-    .signup-incentive strong { color: var(--gold); font-family: 'Playfair Display', serif; font-style: italic; display: block; margin-bottom: 0.2rem; font-size: 1rem; }
-    .signup-incentive span { color: rgba(221,232,226,0.8); font-size: 0.84rem; }
-    .signup-form { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
-    .signup-form input[type="email"] { padding: 0.85rem 1.2rem; border: 2px solid var(--moss); border-radius: 4px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; background: var(--cream); color: var(--ink); width: 270px; outline: none; transition: border-color 0.2s; }
-    .signup-form input:focus { border-color: var(--pine); }
-    .signup-form input::placeholder { color: #bbb; }
-    .signup-fine { font-size: 0.76rem; color: #aaa; margin-top: 0.75rem; }
+    .signup .section-label { color: var(--moss); }
+    .signup .section-heading { color: var(--cream); font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 2rem; }
+
+    .signup-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+    /* Left column */
+    .signup-book-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .signup-game-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); margin-bottom: 0.75rem; font-style: italic; }
+    .signup-game-desc { font-size: 0.95rem; color: rgba(221,232,226,0.82); line-height: 1.78; font-weight: 300; margin-bottom: 0.75rem; }
+    .signup-perks { list-style: none; padding: 0; margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .signup-perks li { font-size: 0.88rem; color: var(--moss); font-weight: 600; letter-spacing: 0.02em; }
+
+    /* Right column — form box */
+    .signup-form-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(138,171,126,0.2); border-radius: 12px; padding: 2rem; }
+    .signup-form-headline { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); line-height: 1.4; margin-bottom: 0.6rem; }
+    .signup-form-headline em { color: var(--gold); font-style: italic; }
+    .signup-form-sub { font-size: 0.86rem; color: rgba(221,232,226,0.65); line-height: 1.65; font-weight: 300; margin-bottom: 1.5rem; }
+    .signup-form-fields { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    /* These styles apply to both the placeholder AND Brevo's fields
+       once you add class="brevo-input" and class="brevo-btn" in Brevo */
+    .brevo-input,
+    .signup-form-fields input[type="email"] {
+      width: 100%; padding: 0.9rem 1.1rem;
+      border: 2px solid rgba(138,171,126,0.35); border-radius: 6px;
+      font-family: 'Nunito', sans-serif; font-size: 0.95rem;
+      background: rgba(255,255,255,0.07); color: var(--cream);
+      outline: none; transition: border-color 0.2s, background 0.2s;
+    }
+    .brevo-input:focus,
+    .signup-form-fields input:focus { border-color: var(--moss); background: rgba(255,255,255,0.11); }
+    .brevo-input::placeholder,
+    .signup-form-fields input::placeholder { color: rgba(221,232,226,0.35); }
+
+    .brevo-btn,
+    .signup-form-fields button {
+      width: 100%; padding: 0.95rem 1.5rem;
+      background: var(--rust); color: #fff;
+      border: none; border-radius: 6px;
+      font-family: 'Nunito', sans-serif; font-size: 0.97rem;
+      font-weight: 700; letter-spacing: 0.03em;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+    }
+    .brevo-btn:hover,
+    .signup-form-fields button:hover { background: #a84d22; transform: translateY(-2px); }
+
+    .signup-success-msg { color: var(--moss); font-weight: 600; font-size: 0.95rem; padding: 0.75rem; background: rgba(138,171,126,0.12); border-radius: 6px; border: 1px solid rgba(138,171,126,0.25); margin-top: 0.25rem; }
+    .signup-error-msg { color: #e07070; font-size: 0.86rem; margin-top: 0.25rem; }
+    .signup-fine { font-size: 0.75rem; color: rgba(221,232,226,0.4); margin-top: 1rem; text-align: center; }
 
     /* About strip */
     .about-strip { background: var(--cream); display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding: 4rem 6vw; border-top: 1px solid rgba(0,0,0,0.07); }
@@ -165,6 +282,9 @@
       .games-grid, .news-grid { grid-template-columns: 1fr 1fr; }
       .about-strip { grid-template-columns: 1fr; text-align: center; }
       .about-monogram { margin: 0 auto; }
+    }
+    @media (max-width: 780px) {
+      .signup-two-col { grid-template-columns: 1fr; gap: 2.5rem; }
     }
     @media (max-width: 600px) {
       .games-grid, .news-grid { grid-template-columns: 1fr; }
@@ -263,7 +383,7 @@
           </div>
         </div>
 
-        <!-- Card 5: ONW Terminus -->
+        <!-- Card 5: ONW Terminus (placeholder — add cover art when ready) -->
         <div class="hero-card pos-hidden" style="background:linear-gradient(145deg,#1a2e3e,#2a4050);">
           <!-- <img src="images/onw-terminus-cover.jpg" alt="One Night Worlds: Terminus X7Z" /> -->
           <div class="card-fallback">
@@ -280,7 +400,7 @@
           </div>
         </div>
 
-        <!-- Card 6: ONW In Alleys Dark -->
+        <!-- Card 6: ONW In Alleys Dark (placeholder — add cover art when ready) -->
         <div class="hero-card pos-hidden" style="background:linear-gradient(145deg,#1e1810,#352810);">
           <!-- <img src="images/onw-alleys-cover.jpg" alt="One Night Worlds: In Alleys Dark" /> -->
           <div class="card-fallback">
@@ -412,22 +532,92 @@
 <section class="signup" id="signup">
   <div class="signup-bg">🌲</div>
   <div class="signup-inner">
-    <span class="section-label">Join the Community</span>
-    <h2 class="section-heading">Get a Free Game. Stay in the Loop.</h2>
-    <p class="section-sub">New releases, design diaries, actual play announcements, and behind-the-scenes peeks — straight to your inbox.</p>
-    <div class="signup-incentive">
-      <span class="gift">🎁</span>
-      <div>
-        <strong>What Really Happened — Free Download</strong>
-        <span>A TTRPG where you play as someone who was actually there in your favorite book — and the author got it completely wrong.</span>
+
+    <span class="section-label">Free Game Inside</span>
+    <h2 class="section-heading">A Free TTRPG, Just for You.</h2>
+
+    <div class="signup-two-col">
+
+      <!-- LEFT: Game description -->
+      <div class="signup-game-info">
+        <div class="signup-book-icon">📖</div>
+        <h3 class="signup-game-title">What Really Happened</h3>
+        <p class="signup-game-desc">You were there. You know what really happened. The author just got it completely wrong.</p>
+        <p class="signup-game-desc">This free TTRPG by Brian Hazzard drops you into the pages of your favorite book as a character who lived through it — and has a very different story to tell. Play it in one night, with any book your group loves.</p>
+        <ul class="signup-perks">
+          <li>✦ Free to download instantly</li>
+          <li>✦ Works with any book your group loves</li>
+          <li>✦ Designed for a single fun session</li>
+        </ul>
       </div>
+
+      <!-- RIGHT: Form -->
+      <div class="signup-form-box">
+        <p class="signup-form-headline">Get <em>What Really Happened</em> free when you join our list.</p>
+        <p class="signup-form-sub">Plus: new release announcements, design diaries, and behind-the-scenes updates from Wandering Pine Press.</p>
+
+        <!--
+        ============================================================
+        BREVO FORM — HOW TO REPLACE THIS:
+
+        1. In Brevo, go to Email → Forms → Create a new form
+        2. Add a single Email field
+        3. Set the confirmation to show a thank-you message (not redirect)
+        4. Click Share & Embed → copy the HTML embed code
+        5. DELETE everything between BREVO START and BREVO END below
+           and paste your Brevo code there instead
+        6. On Brevo's <input> tag add:  class="brevo-input"
+           On Brevo's <button> tag add: class="brevo-btn"
+           The styling will snap into place automatically.
+        ============================================================
+        -->
+
+        <!-- BREVO FORM -->
+        <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949; max-width:540px;">
+          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"/></svg>
+            <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+          </div>
+        </div>
+        <div id="success-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#085229; background-color:#e7faf0; border-radius:3px; border-color:#13ce66; max-width:540px;">
+          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"/></svg>
+            <span class="sib-form-message-panel__inner-text">🌲 You're in! Check your inbox for <em>What Really Happened</em>.</span>
+          </div>
+        </div>
+        <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:540px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
+          <form id="sib-form" method="POST" action="https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA==" data-type="subscription">
+            <div style="padding: 8px 0;">
+              <div class="sib-input sib-form-block">
+                <div class="form__entry entry_block">
+                  <div class="form__label-row">
+                    <label class="entry__label" style="font-weight:700; text-align:left; font-size:16px; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to subscribe</label>
+                    <div class="entry__field">
+                      <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="your@email.com" data-required="true" required />
+                    </div>
+                  </div>
+                  <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;"></label>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 8px 0;">
+              <div class="sib-form-block" style="text-align:left">
+                <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px; font-weight:700; font-family:Helvetica, sans-serif; color:#FFFFFF; background-color:#3E4857; border-radius:3px; border-width:0px;" form="sib-form" type="submit">
+                  <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512"><path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"/></svg>
+                  Send Me the Free Game 🎁
+                </button>
+              </div>
+            </div>
+            <input type="text" name="email_address_check" value="" class="input--hidden">
+            <input type="hidden" name="locale" value="en">
+          </form>
+        </div>
+        <!-- END BREVO FORM -->
+
+        <p class="signup-fine">No spam. No nonsense. Unsubscribe any time.</p>
+      </div>
+
     </div>
-    <!-- TODO: Replace div.signup-form with your email platform embed code (Mailchimp, ConvertKit, etc.) -->
-    <div class="signup-form">
-      <input type="email" placeholder="your@email.com" aria-label="Email address"/>
-      <button type="button" class="btn-primary">Send Me the Game</button>
-    </div>
-    <p class="signup-fine">We respect your inbox. Unsubscribe any time.</p>
   </div>
 </section>
 
@@ -444,8 +634,18 @@
 
 <script src="js/main.js"></script>
 <script src="js/components.js"></script>
+<!-- Brevo form script -->
 <script>
-  // ── Hero Card Carousel ──────────────────────────────────────
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  window.LOCALE = 'en';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+  window.translation = { common: { selectedList: '{quantity} list selected', selectedLists: '{quantity} lists selected', selectedOption: '{quantity} selected', selectedOptions: '{quantity} selected' } };
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<script>
   (function() {
     const stack = document.getElementById('card-stack');
     const dotsEl = document.getElementById('card-dots');
@@ -455,8 +655,6 @@
     const total = cards.length;
     let current = 0;
     let timer;
-
-    const positions = ['pos-front', 'pos-mid', 'pos-back', 'pos-hidden'];
 
     // Mark cards that have successfully loaded a cover image
     cards.forEach(function(card) {
