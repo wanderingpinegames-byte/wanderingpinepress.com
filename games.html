@@ -15,7 +15,9 @@
     .games-full-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
     .game-card { background: var(--cream); border-radius: 8px; overflow: hidden; transition: transform 0.22s, box-shadow 0.22s; display: flex; flex-direction: column; }
     .game-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(0,0,0,0.1); }
-    .game-card-img { width: 100%; height: 180px; }
+    .game-card-img { width: 100%; height: 180px; overflow: hidden; position: relative; flex-shrink: 0; }
+    .game-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .game-card-img.img-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .game-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .game-card-top { display: flex; align-items: flex-start; gap: 0.5rem; margin-bottom: 0.85rem; }
     .game-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.25rem; line-height: 1.3; }
@@ -57,13 +59,13 @@
 
   <!-- CAMPAIGNS -->
   <h3 class="group-heading">Full Campaign Games</h3>
-  <p class="group-sub">Long-form TTRPGs designed for ongoing play: characters grow, worlds deepen, stories unfold over many sessions.</p>
+  <p class="group-sub">Long-form TTRPGs designed for ongoing play — characters grow, worlds deepen, stories unfold over many sessions.</p>
   <div class="games-full-grid" id="campaigns-grid">
 
     <div class="game-card" data-type="campaign">
-      <div class="game-card-img img-placeholder" style="height:180px;">
-        <span class="ph-icon">🚀</span>
-        <span>Cover Art Coming Soon</span>
+      <div class="game-card-img">
+        <!-- ADD: <img src="images/terminus-cover.jpg" alt="Terminus X7Z cover" /> -->
+        <div class="img-placeholder" style="height:180px;"><span class="ph-icon">🚀</span><span>Cover Art Coming Soon</span></div>
       </div>
       <div class="game-card-body">
         <div>
@@ -71,7 +73,7 @@
         </div>
         <h3 class="game-title">Terminus X7Z</h3>
         <p class="game-subtitle">A Latticeverse Game</p>
-        <p class="game-desc">Navigate a future where humanity shares the stars with dozens of alien species and tensions run high. Terminus X7Z is a sci-fi TTRPG inspired by shows like Star Trek, built around diplomacy, culture clash, and the complicated business of coexistence. Combat is rarely the answer here.</p>
+        <p class="game-desc">Navigate a future where humanity shares the stars with dozens of alien species — and tensions run high. Terminus X7Z is a sci-fi TTRPG inspired by shows like Star Trek, built around diplomacy, culture clash, and the complicated business of coexistence. Combat is rarely the answer here.</p>
         <div class="game-tags"><span class="tag">Sci-Fi</span><span class="tag">Social Conflict</span><span class="tag">Narrative</span><span class="tag">Campaign</span></div>
         <div class="game-card-actions">
           <a href="game-terminus.html" class="learn">Learn More →</a>
@@ -81,9 +83,9 @@
     </div>
 
     <div class="game-card" data-type="campaign">
-      <div class="game-card-img img-placeholder" style="height:180px;">
-        <span class="ph-icon">🕵️</span>
-        <span>Cover Art Coming Soon</span>
+      <div class="game-card-img">
+        <!-- ADD: <img src="images/alleys-cover.jpg" alt="In Alleys Dark cover" /> -->
+        <div class="img-placeholder" style="height:180px;"><span class="ph-icon">🕵️</span><span>Cover Art Coming Soon</span></div>
       </div>
       <div class="game-card-body">
         <div>
@@ -106,11 +108,12 @@
 
   <!-- ONE NIGHT WORLDS -->
   <h3 class="group-heading">One Night Worlds</h3>
-  <p class="group-sub">Complete adventures designed for a single session. No prep required. No ongoing commitment. Perfect for busy schedules or introducing new players.</p>
+  <p class="group-sub">Complete adventures designed for a single session — no prep required, no ongoing commitment. Perfect for busy schedules or introducing new players.</p>
   <div class="games-full-grid" id="oneshots-grid">
 
     <div class="game-card" data-type="oneshot">
-<img src="images/TX7Z.jpg" alt="One Night Worlds: Terminus X7Z" /> 
+      <div class="game-card-img">
+        <img src="images/TX&Z.jpg" alt="ONW Terminus X7Z cover" />
       </div>
       <div class="game-card-body">
         <div><span class="game-badge badge-oneshot">One Night World</span></div>
@@ -120,13 +123,14 @@
         <div class="game-tags"><span class="tag">Sci-Fi</span><span class="tag">One-Shot</span></div>
         <div class="game-card-actions">
           <a href="game-onw-terminus.html" class="learn">Learn More →</a>
-          <a href="https://www.drivethrurpg.com/en/product/553129/one-night-worlds-terminus-x7z" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
+          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
         </div>
       </div>
     </div>
 
     <div class="game-card" data-type="oneshot">
-      <img src="images/In Alleys.jpg" alt="ONW: In Alleys Dark cover" class="game-cover-img"/>
+      <div class="game-card-img">
+        <img src="images/In Alleys.jpg" alt="ONW In Alleys Dark cover" />
       </div>
       <div class="game-card-body">
         <div><span class="game-badge badge-oneshot">One Night World</span></div>
@@ -136,13 +140,14 @@
         <div class="game-tags"><span class="tag">Noir</span><span class="tag">One-Shot</span></div>
         <div class="game-card-actions">
           <a href="game-onw-alleys.html" class="learn">Learn More →</a>
-          <a href="https://www.drivethrurpg.com/en/product/558492/one-night-worlds-in-alleys-dark" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
+          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
         </div>
       </div>
     </div>
 
     <div class="game-card" data-type="oneshot">
-<img src="images/Fires.jpg" alt="ONW: The Fires of Chaterra cover" class="game-cover-img"/>
+      <div class="game-card-img">
+      <img src="images/Fires.jpg" alt="Fires of Chaterra cover" /> 
       </div>
       <div class="game-card-body">
         <div><span class="game-badge badge-oneshot">One Night World</span></div>
@@ -152,13 +157,14 @@
         <div class="game-tags"><span class="tag">Fantasy</span><span class="tag">Fairytale</span><span class="tag">One-Shot</span></div>
         <div class="game-card-actions">
           <a href="game-chaterra.html" class="learn">Learn More →</a>
-          <a href="https://www.drivethrurpg.com/en/product/556188/one-night-worlds-the-fires-of-chaterra?src=hottest_filtered" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
+          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
         </div>
       </div>
     </div>
 
     <div class="game-card" data-type="oneshot">
-<img src="images/TC&C.jpg" alt="ONW: Tales of Clockwork & Chaos cover" class="game-cover-img"/>
+      <div class="game-card-img">
+        <img src="images/TC&C.jpg" alt="Clockwork & Chaos cover" />
       </div>
       <div class="game-card-body">
         <div><span class="game-badge badge-oneshot">One Night World</span></div>
@@ -168,7 +174,7 @@
         <div class="game-tags"><span class="tag">Steampunk</span><span class="tag">Resistance</span><span class="tag">One-Shot</span></div>
         <div class="game-card-actions">
           <a href="game-clockwork.html" class="learn">Learn More →</a>
-          <a href="https://www.drivethrurpg.com/en/product/556191/one-night-worlds-tales-of-clockwork-chaos" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
+          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="buy">Get on DriveThruRPG ↗</a>
         </div>
       </div>
     </div>
