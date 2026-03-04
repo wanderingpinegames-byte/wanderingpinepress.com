@@ -18,9 +18,9 @@
     /* Public post card */
     .post-card { background: var(--parchment); border-radius: 10px; overflow: hidden; display: grid; grid-template-columns: 180px 1fr; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; color: inherit; }
     .post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .post-thumb { min-height: 160px; width: 180px; overflow: hidden; flex-shrink: 0; }
-    .post-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 160px; }
-    .post-body { padding: 1.5rem; }
+    .post-thumb { width: 180px; min-height: 160px; overflow: hidden; flex-shrink: 0; position: relative; }
+    .post-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-body { padding: 1.5rem; min-width: 0; }
     .post-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.65rem; flex-wrap: wrap; }
     .post-category { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px; background: rgba(45,74,62,0.1); color: var(--pine); }
     .post-date { font-family: 'Special Elite', cursive; font-size: 0.7rem; letter-spacing: 0.1em; color: #aaa; }
@@ -104,8 +104,8 @@
       <div class="post-list">
 
         <a class="post-card" href="https://buymeacoffee.com/brianhazzard/the-four-non-negotiables-solo-rpg-design" target="_blank" rel="noopener">
-          <div class="post-thumb" style="border-radius:0;">
-          <img src="images/Kickstarter Info Graphic.png" alt="Blog Image" />
+         <div class="post-thumb" style="border-radius:0;">
+            <img src="images/Kickstarter Info Graphic.png" alt="Blog Image" />
           </div>
           <div class="post-body">
             <div class="post-meta">
@@ -119,8 +119,8 @@
         </a>
 
         <a class="post-card" href="https://buymeacoffee.com/brianhazzard/creative-journal-3" target="_blank" rel="noopener">
-         <div class="post-thumb" style="border-radius:0;">
-          <img src="images/Concentric Loops of Gameplay.png" alt="Blog Image" />
+          <div class="post-thumb" style="border-radius:0;">
+          <img src="images/Concentric Loops of Gameplay.png" alt="Post title" />
           </div>
           <div class="post-body">
             <div class="post-meta">
@@ -135,7 +135,7 @@
 
         <a class="post-card" href="https://buymeacoffee.com/brianhazzard/the-day-i-punched-through-the-moon" target="_blank" rel="noopener">
           <div class="post-thumb" style="border-radius:0;">
-          <img src="images/moon (1).png" alt="Blog Image" />
+            <img src="images/moon (1).png" alt="Post title" />
           </div>
           <div class="post-body">
             <div class="post-meta">
@@ -258,12 +258,12 @@
         <div class="workshop-cta-text">
           <span class="eyebrow">Join the Community</span>
           <h3>The Wandering Workshop</h3>
-          <p>Get behind-the-scenes access to Brian's creative process: design diaries, work-in-progress content, and occasional digital downloads. All for less than a cup of coffee a month.</p>
+          <p>Get behind-the-scenes access to Brian's creative process — design diaries, work-in-progress content, and occasional digital downloads. All for less than a cup of coffee a month.</p>
           <ul>
             <li>✦ Support Brian's work directly</li>
-            <li>✦ Exclusive Creative Journal: The Wandering Workshop</li>
+            <li>✦ Exclusive Creative Journal — Brian's design diary</li>
             <li>✦ Occasional digital downloads</li>
-            <li>✦ Access to all past exclusive posts</li>
+            <li>✦ Access to all 6 past exclusive posts</li>
           </ul>
         </div>
         <a href="https://buymeacoffee.com/brianhazzard/membership" target="_blank" rel="noopener" class="workshop-cta-btn">Join for $5/month →</a>
