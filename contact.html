@@ -3,45 +3,35 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Get in touch with Wandering Pine Press — general inquiries, press, and wholesale."/>
-  <title>Contact — Wandering Pine Press</title>
+  <meta name="description" content="Get in touch with Wandering Pine Press. General inquiries, press, and purchase support."/>
+  <title>Contact -- Wandering Pine Press</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: start; }
-    .contact-form-wrap { background: var(--parchment); border-radius: 12px; padding: 2.5rem; }
-    .contact-form-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .contact-form-wrap p { font-size: 0.92rem; color: var(--gray); margin-bottom: 1.75rem; font-weight: 300; line-height: 1.65; }
-    .form-group { margin-bottom: 1.25rem; }
-    .form-group label { display: block; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: var(--pine); margin-bottom: 0.4rem; text-transform: uppercase; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%; padding: 0.8rem 1rem;
-      border: 2px solid var(--mist); border-radius: 4px;
-      font-family: 'Nunito', sans-serif; font-size: 0.92rem;
-      background: var(--cream); color: var(--ink);
-      transition: border-color 0.2s; outline: none;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 860px;
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--pine); }
-    .form-group textarea { resize: vertical; min-height: 130px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    #form-success { display: none; background: rgba(138,171,126,0.15); border: 2px solid var(--moss); border-radius: 6px; padding: 1rem 1.25rem; color: var(--pine); font-weight: 600; font-size: 0.92rem; margin-top: 1rem; }
-
-    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
-    .info-card { background: var(--parchment); border-radius: 10px; padding: 1.5rem; }
-    .info-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--pine); margin-bottom: 0.5rem; }
-    .info-card p { font-size: 0.9rem; color: #555; line-height: 1.65; font-weight: 300; }
+    .info-card { background: var(--parchment); border-radius: 10px; padding: 2rem; }
+    .info-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--pine); margin-bottom: 0.6rem; }
+    .info-card p { font-size: 0.92rem; color: #555; line-height: 1.7; font-weight: 300; margin-bottom: 0.5rem; }
     .info-card a { color: var(--pine); font-weight: 600; text-decoration: none; }
     .info-card a:hover { color: var(--rust); }
-    .info-card .icon { font-size: 1.5rem; margin-bottom: 0.6rem; display: block; }
-    .response-note { font-size: 0.8rem; color: #aaa; margin-top: 0.5rem; font-style: italic; }
+    .info-card .icon { font-size: 1.6rem; margin-bottom: 0.75rem; display: block; }
+    .info-card.featured { background: var(--pine); grid-column: span 2; display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: center; }
+    .info-card.featured .icon { font-size: 2.2rem; margin: 0; }
+    .info-card.featured h4 { color: var(--gold); font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .info-card.featured p { color: rgba(221,232,226,0.85); margin-bottom: 0.3rem; }
+    .info-card.featured a { color: var(--gold); }
+    .info-card.featured a:hover { color: var(--moss); }
+    .response-note { font-size: 0.8rem; color: rgba(221,232,226,0.55); font-style: italic; }
+    .info-card:not(.featured) .response-note { color: #aaa; }
 
-    @media (max-width: 900px) {
-      .contact-layout { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .info-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -52,86 +42,47 @@
   <div class="page-hero-inner">
     <span class="section-label">Get in Touch</span>
     <h1>Contact Us</h1>
-    <p>Questions, press inquiries, wholesale requests, or just want to say hello — we'd love to hear from you.</p>
+    <p>Questions, press inquiries, purchase support, or just want to say hello. We would love to hear from you.</p>
   </div>
 </div>
 
 <section>
-  <div class="contact-layout">
+  <div class="contact-grid">
 
-    <!-- FORM -->
-    <div class="contact-form-wrap">
-      <h2>Send Us a Message</h2>
-      <p>Fill out the form and we'll get back to you within 2–3 business days.</p>
-      <!--
-        TODO: To make this form work, either:
-        1. Add action="https://formspree.io/f/YOUR_FORM_ID" method="POST" to the form tag
-           and sign up at formspree.io (free tier available), OR
-        2. Use Netlify Forms if hosting on Netlify (add data-netlify="true"), OR
-        3. Wire up to your preferred form handler.
-      -->
-      <form id="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first_name" placeholder="Brian" required/>
-          </div>
-          <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last_name" placeholder="Hazzard" required/>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required/>
-        </div>
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <select id="subject" name="subject">
-            <option value="">Select a topic…</option>
-            <option value="general">General Question</option>
-            <option value="press">Press / Media Inquiry</option>
-            <option value="wholesale">Wholesale / Retail</option>
-            <option value="rules">Rules Question</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Send Message</button>
-        <div id="form-success">✓ Message sent! We'll be in touch within 2–3 business days.</div>
-      </form>
+    <!-- Featured email card spans full width -->
+    <div class="info-card featured">
+      <span class="icon">✉️</span>
+      <div>
+        <h4>Email Us Directly</h4>
+        <p>For all inquiries including press, wholesale, rules questions, and general hellos:</p>
+        <p><a href="mailto:WanderingPineGames@gmail.com">WanderingPineGames@gmail.com</a></p>
+        <p class="response-note">We respond within 2 to 3 business days.</p>
+      </div>
     </div>
 
-    <!-- INFO CARDS -->
-    <div class="contact-info">
-      <div class="info-card">
-        <span class="icon">✉️</span>
-        <h4>Email Us Directly</h4>
-        <p>For all inquiries including press, wholesale, and general questions:<br/>
-        <a href="mailto:WanderingPineGames@gmail.com">WanderingPineGames@gmail.com</a></p>
-        <p class="response-note">We respond within 2–3 business days.</p>
-      </div>
-      <div class="info-card">
-        <span class="icon">🎙️</span>
-        <h4>Press & Podcast Inquiries</h4>
-        <p>Want to feature Brian on your podcast or have Wandering Pine Press games on your show? We'd love to connect. Email us or visit our <a href="press.html">Press Kit page</a> for resources.</p>
-      </div>
-      <div class="info-card">
-        <span class="icon">🎮</span>
-        <h4>Purchase Support</h4>
-        <p>All digital purchases are handled through <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener">DriveThruRPG</a>. For issues with orders, please contact DriveThruRPG support directly, or email us if you need further help.</p>
-      </div>
-      <div class="info-card">
-        <span class="icon">📱</span>
-        <h4>Follow Along</h4>
-        <p>
-          <a href="https://www.instagram.com/wanderingpinepress" target="_blank" rel="noopener">Instagram @wanderingpinepress</a><br/>
-          <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener">YouTube @wanderingpinepress</a>
-        </p>
-      </div>
+    <div class="info-card">
+      <h4>Press and Podcast Inquiries</h4>
+      <p>Want to feature Brian on your podcast or cover Wandering Pine Press games? We would love to connect. Visit our <a href="press.html">Press Kit page</a> for bios, game descriptions, and talking points.</p>
+    </div>
+
+    <div class="info-card">
+      <h4>Purchase Support</h4>
+      <p>All digital purchases are handled through <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener">DriveThruRPG</a>. For order issues please contact DriveThruRPG support directly, or email us if you need further help.</p>
+    </div>
+
+    <div class="info-card">
+      <h4>Follow Along</h4>
+      <p>
+        <a href="https://www.instagram.com/wanderingpinepress" target="_blank" rel="noopener">Instagram @wanderingpinepress</a><br/>
+        <a href="https://www.youtube.com/@wanderingpinepress" target="_blank" rel="noopener">YouTube @wanderingpinepress</a><br/>
+        <a href="https://buymeacoffee.com/brianhazzard" target="_blank" rel="noopener">Buy Me a Coffee</a>
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h4>Get a Free Game</h4>
+      <p>Join our newsletter and get <em>What Really Happened</em> as a free download. New releases, design notes, and updates straight to your inbox.</p>
+      <p><a href="index.html#signup">Sign up here</a></p>
     </div>
 
   </div>
