@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Terminus X7Z: A Latticeverse Game — A narrative sci-fi TTRPG about diplomacy, culture clash, and coexistence among the stars."/>
+  <meta name="description" content="Terminus X7Z: A Latticeverse Game — A GMless sci-fi TTRPG about duty, discovery, and diplomacy on a space station at the edge of the universe."/>
   <title>Terminus X7Z — Wandering Pine Press</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
@@ -16,6 +16,33 @@
     .game-main ul { list-style: none; padding: 0; margin-bottom: 1rem; }
     .game-main ul li { font-size: 0.95rem; line-height: 1.7; color: #444; padding: 0.3rem 0 0.3rem 1.4rem; position: relative; font-weight: 300; }
     .game-main ul li::before { content: '🌲'; position: absolute; left: 0; font-size: 0.75rem; top: 0.45rem; }
+
+    /* Flavor quote block */
+    .flavor-block {
+      background: linear-gradient(135deg, #1e3244, #2a4a60);
+      border-radius: 10px; padding: 2rem 2.25rem;
+      margin-bottom: 2rem; position: relative; overflow: hidden;
+    }
+    .flavor-block::before {
+      content: '"'; position: absolute; top: -0.5rem; left: 1rem;
+      font-family: 'Playfair Display', serif; font-size: 8rem;
+      color: rgba(138,171,126,0.12); line-height: 1; pointer-events: none;
+    }
+    .flavor-block p {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      color: rgba(221,232,226,0.9); font-size: 1rem; line-height: 1.85;
+      margin-bottom: 0; position: relative; z-index: 1;
+    }
+
+    /* Traits grid */
+    .traits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.25rem; }
+    .trait-card { background: var(--parchment); border-radius: 8px; padding: 1rem 1.1rem; }
+    .trait-card strong { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--pine); display: block; margin-bottom: 0.25rem; }
+    .trait-card span { font-size: 0.83rem; color: #666; line-height: 1.55; font-weight: 300; }
+
+    /* Video embed */
+    .video-wrap { border-radius: 10px; overflow: hidden; margin: 1.5rem 0; position: relative; padding-bottom: 56.25%; height: 0; }
+    .video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 
     .game-sidebar { position: sticky; top: 84px; }
     .sidebar-card { background: var(--parchment); border-radius: 10px; padding: 1.75rem; margin-bottom: 1.25rem; }
@@ -41,6 +68,7 @@
       .game-layout { grid-template-columns: 1fr; }
       .game-sidebar { position: static; }
       .related-grid { grid-template-columns: 1fr 1fr; }
+      .traits-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
@@ -55,7 +83,7 @@
     </div>
     <span class="section-label">Full Campaign · Sci-Fi</span>
     <h1>Terminus X7Z</h1>
-    <p>A Latticeverse Game — Navigate a future where humanity shares the stars, and tensions run higher than warp speed.</p>
+    <p>A Latticeverse Game -- Duty, discovery, and diplomacy on a space station at the edge of the universe.</p>
   </div>
 </div>
 
@@ -65,28 +93,39 @@
     <!-- MAIN CONTENT -->
     <div class="game-main">
 
+      <div class="flavor-block">
+        <p>Lattice Terminus X7Z is not just a station. It is an invitation. It exists so that any species, world, or culture ready to step into a shared future has somewhere to arrive. A place to be heard, and welcomed into the Coalition of Interplanetary Lifeforms. Our station is a doorway and the universe keeps walking through it. Every arrival carries promise and baggage in equal measure. Ideas collide. Histories resurface. Certainties soften. No one passes through this place unchanged, least of all the people tasked with holding it together.</p>
+      </div>
+
       <h2>About the Game</h2>
-      <p><!-- ADD: 2-3 paragraphs describing Terminus X7Z in detail. What is the Latticeverse? What kind of stories does this game tell? What inspired it? --></p>
-      <p>Terminus X7Z is a sci-fi tabletop RPG inspired by shows like Star Trek — built around diplomacy, culture clash, and the complicated, often messy business of coexistence. In a future where humanity is one species among dozens, combat is rarely the right answer. The real drama happens at the negotiating table, in the corridors of a shared station, in the moment when two cultures misunderstand each other in ways that could start a war.</p>
-      <p><!-- ADD: More flavor about the setting, tone, and what makes sessions feel unique. --></p>
+      <p>Terminus X7Z: A Latticeverse Game is a sci-fi tabletop RPG about duty, discovery, and diplomacy on a space station rebuilding in the long shadow of a war. The namesake space station is a gateway to the Lattice, a wormhole network that holds interplanetary society together.</p>
+      <p>Players take on the roles of officers of the Coalition of Interplanetary Lifeforms (COIL) with a duty to protect the Lattice, while navigating a constant stream of new faces, ideas, and crises. In this game, everyone at the table is a player -- there is no GM and no prep. Players collaborate to experience thrilling and thought-provoking sci-fi stories, aided by clear rules, dramatic dice mechanics, and evocative prompts that let the setting reveal itself at the table.</p>
 
-      <h2>What's In the Box</h2>
-      <ul>
-        <li><!-- ADD: List what's included in the physical/digital product --></li>
-        <li>A complete rulebook with everything you need to play</li>
-        <li>Pre-generated characters to get started fast</li>
-        <li><!-- ADD: Other included content --></li>
-      </ul>
+      <h2>Is This Game for You?</h2>
+      <p>Terminus X7Z is a game for players who enjoy collaborative storytelling, ethical tension, and character-driven sci-fi. It is not focused on accurate simulation of tactical combat or detailed bookkeeping. It can be run as a one-shot or a full campaign for 2 to 5 players with sessions running 1 to 3 hours.</p>
+      <p>If you love science fiction where scientific discoveries raise more questions than answers, diplomacy can be as dangerous as combat, and ethical dilemmas take center stage -- this game was made for you.</p>
 
-      <h2>Who Is This Game For?</h2>
-      <p><!-- ADD: Describe the ideal player/table for this game. Experience level? Fans of what shows/games? --></p>
-      <p>If your table loves character-driven stories, enjoys political intrigue more than dungeon crawling, or just wants to boldly go somewhere new — Terminus X7Z was made for you.</p>
+      <h2>The People Who Call the Station Home</h2>
+      <p>Player characters in Terminus X7Z are fast to create and deeply connected to both the setting and other player characters. Each character is composed of Traits and an Arc.</p>
+      <p><strong style="color:var(--pine);">Traits</strong> form the core of who your character is, connecting them to the setting, their culture, and the rest of the crew. Each character has six traits:</p>
+      <div class="traits-grid">
+        <div class="trait-card"><strong>Species</strong><span>Tying you to the setting at a cosmic scale</span></div>
+        <div class="trait-card"><strong>Division</strong><span>Giving you a clear role on the station</span></div>
+        <div class="trait-card"><strong>Experience</strong><span>Explaining your relationship to COIL</span></div>
+        <div class="trait-card"><strong>Talent</strong><span>Defining the unique gift that sets you apart</span></div>
+        <div class="trait-card"><strong>Mirror</strong><span>Revealing your relationship to your culture's predominant values</span></div>
+        <div class="trait-card"><strong>Bond</strong><span>Providing a deep connection to another player character</span></div>
+      </div>
+      <p><strong style="color:var(--pine);">Arcs</strong> determine what your character's story is about. Each Arc is composed of Touchstones, Play to Find Out questions, Facets, and Scene Titles to inspire scenes where your character takes the spotlight.</p>
 
-      <h2>The Latticeverse</h2>
-      <p><!-- ADD: Brief lore overview of the Latticeverse setting. What is it? Key factions or species? The tone of the universe? --></p>
+      <h2>Bring the Station to Life</h2>
+      <p>In great works of science fiction, the setting is itself a character. Terminus X7Z is no different -- that is where Dynamics come into play. Dynamics represent the realities of life on the station, each composed of Motivations, Moments, Manifestations, and Scene Titles that anchor abstract themes in the station's physical and social reality.</p>
 
-      <h2>Designer's Notes</h2>
-      <p><!-- ADD: Brian's notes on what inspired this game, the design philosophy behind it, what problems it solves. Great for podcast-style candid voice. --></p>
+      <h2>Why We Made Terminus X7Z</h2>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/ZEFER1bb8Rs?si=WgfEAxxtKJCvsnYh" title="Why We Made Terminus X7Z" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p><!-- ADD: Brian's notes on what inspired this game and the design philosophy behind it. --></p>
 
     </div>
 
@@ -102,20 +141,19 @@
         <ul class="meta-list">
           <li><span class="meta-label">Type</span><span class="meta-value">Full Campaign</span></li>
           <li><span class="meta-label">Genre</span><span class="meta-value">Sci-Fi · Social</span></li>
-          <li><span class="meta-label">Players</span><span class="meta-value"><!-- e.g. 2–5 --></span></li>
-          <li><span class="meta-label">Session Length</span><span class="meta-value"><!-- e.g. 2–4 hrs --></span></li>
+          <li><span class="meta-label">Players</span><span class="meta-value">2 to 5</span></li>
+          <li><span class="meta-label">Session Length</span><span class="meta-value">1 to 3 hours</span></li>
+          <li><span class="meta-label">GM Required</span><span class="meta-value">No -- fully GMless</span></li>
           <li><span class="meta-label">Format</span><span class="meta-value">PDF + Print</span></li>
+          <li><span class="meta-label">Status</span><span class="meta-value">Coming Soon</span></li>
         </ul>
       </div>
       <div class="sidebar-card">
         <h4>Get Your Copy</h4>
         <div class="buy-block">
-          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="btn-primary">Buy on DriveThruRPG</a>
-          <!-- Uncomment when physical copies are available:
-          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="btn-pine">Buy Physical Copy</a>
-          -->
+          <a href="https://www.kickstarter.com/projects/brianhazzard/terminus-x7z" target="_blank" rel="noopener" class="btn-primary">View on Kickstarter</a>
         </div>
-        <p class="buy-note">PDF delivered instantly via DriveThruRPG.</p>
+        <p class="buy-note">Coming soon to DriveThruRPG.</p>
       </div>
       <div class="sidebar-card">
         <h4>Also in the Latticeverse</h4>
@@ -136,17 +174,17 @@
     <a href="game-alleys.html" class="related-card">
       <span class="game-badge badge-campaign">Full Campaign</span>
       <h4>In Alleys Dark</h4>
-      <p>1920s vigilante noir — justice in a city where those in charge are corrupt.</p>
+      <p>1920s vigilante noir -- justice in a city where those in charge are corrupt.</p>
     </a>
     <a href="game-onw-terminus.html" class="related-card">
       <span class="game-badge badge-oneshot">One Night World</span>
       <h4>One Night Worlds: Terminus X7Z</h4>
-      <p>The Latticeverse in a single session — perfect for new players.</p>
+      <p>The Latticeverse in a single session -- perfect for new players.</p>
     </a>
     <a href="game-chaterra.html" class="related-card">
       <span class="game-badge badge-oneshot">One Night World</span>
       <h4>The Fires of Chaterra</h4>
-      <p>Fairytale fantasy — a sleeping king, mushroom folk, and an evil witch.</p>
+      <p>Fairytale fantasy -- a sleeping king, mushroom folk, and an evil witch.</p>
     </a>
   </div>
 </section>
