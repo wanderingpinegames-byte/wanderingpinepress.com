@@ -454,14 +454,33 @@
         <p class="signup-form-sub">Plus: new release announcements, design diaries, and behind-the-scenes updates from Wandering Pine Press.</p>
 
         <!-- BREVO FORM -->
-        <form id="sib-form" method="POST" action="https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA==" data-type="subscription" class="wpp-brevo-form">
-          <div class="wpp-form-row">
-            <input type="text" id="EMAIL" name="EMAIL" placeholder="Enter your email address" data-required="true" required autocomplete="email" />
-            <button type="submit">Send Me the Free Game 🎁</button>
+        <div id="sib-form-container" class="sib-form-container">
+          <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:14px; color:#661d1d; background-color:#ffeded; border-radius:3px; padding:0.75rem 1rem; margin-bottom:0.75rem;">
+            Your subscription could not be saved. Please try again.
           </div>
-          <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
-          <input type="hidden" name="locale" value="en">
-        </form>
+          <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:14px; color:#085229; background-color:#e7faf0; border-radius:3px; padding:0.75rem 1rem; margin-bottom:0.75rem;">
+            Your subscription has been successful. Check your inbox for a confirmation email!
+          </div>
+          <div id="sib-container">
+            <form id="sib-form" method="POST" action="https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA==" data-type="subscription" class="wpp-brevo-form">
+              <div class="wpp-form-row">
+                <div class="sib-input sib-form-block">
+                  <div class="form__entry entry_block">
+                    <div class="form__label-row">
+                      <div class="entry__field">
+                        <input class="input" type="text" id="EMAIL" name="EMAIL" placeholder="Enter your email address" data-required="true" required autocomplete="email" />
+                      </div>
+                    </div>
+                    <label class="entry__error entry__error--primary" style="display:none;"></label>
+                  </div>
+                </div>
+                <button type="submit" form="sib-form" class="sib-form-block__button">Send Me the Free Game 🎁</button>
+              </div>
+              <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
+              <input type="hidden" name="locale" value="en">
+            </form>
+          </div>
+        </div>
         <!-- END BREVO FORM -->
 
         <p class="signup-fine">No spam. No nonsense. Unsubscribe any time.</p>
