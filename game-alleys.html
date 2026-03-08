@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="In Alleys Dark: A Rankston Reckoning — A 1920s vigilante noir TTRPG about justice, corruption, and moral choices."/>
+  <meta name="description" content="In Alleys Dark: A Rankston Reckoning -- A GMless 1920s vigilante noir TTRPG about justice, corruption, and the cost of doing what's right."/>
   <title>In Alleys Dark — Wandering Pine Press</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
@@ -16,6 +16,37 @@
     .game-main ul { list-style: none; padding: 0; margin-bottom: 1rem; }
     .game-main ul li { font-size: 0.95rem; line-height: 1.7; color: #444; padding: 0.3rem 0 0.3rem 1.4rem; position: relative; font-weight: 300; }
     .game-main ul li::before { content: '🌲'; position: absolute; left: 0; font-size: 0.75rem; top: 0.45rem; }
+
+    /* Flavor quote block -- noir dark brown theme */
+    .flavor-block {
+      background: linear-gradient(135deg, #2e1f10, #1a1410);
+      border-radius: 10px; padding: 2rem 2.25rem;
+      margin-bottom: 2rem; position: relative; overflow: hidden;
+    }
+    .flavor-block::before {
+      content: '"'; position: absolute; top: -0.5rem; left: 1rem;
+      font-family: 'Playfair Display', serif; font-size: 8rem;
+      color: rgba(201,150,58,0.12); line-height: 1; pointer-events: none;
+    }
+    .flavor-block p {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      color: rgba(221,232,226,0.9); font-size: 1rem; line-height: 1.85;
+      margin-bottom: 0; position: relative; z-index: 1;
+    }
+
+    /* Coming soon banner */
+    .coming-soon-banner {
+      background: var(--gold); border-radius: 8px;
+      padding: 1rem 1.5rem; margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .coming-soon-banner span { font-size: 1.2rem; }
+    .coming-soon-banner p {
+      font-size: 0.9rem; font-weight: 700; color: var(--ink);
+      margin: 0; line-height: 1.4;
+    }
+    .coming-soon-banner p em { font-style: normal; font-weight: 300; display: block; font-size: 0.82rem; }
+
     .game-sidebar { position: sticky; top: 84px; }
     .sidebar-card { background: var(--parchment); border-radius: 10px; padding: 1.75rem; margin-bottom: 1.25rem; }
     .sidebar-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 1rem; color: var(--pine); }
@@ -28,46 +59,66 @@
     .buy-block { display: flex; flex-direction: column; gap: 0.6rem; }
     .buy-block .btn-primary, .buy-block .btn-pine { text-align: center; }
     .buy-note { font-size: 0.76rem; color: #aaa; text-align: center; margin-top: 0.3rem; }
+
     .related { background: var(--parchment); }
     .related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 2rem; }
     .related-card { background: var(--cream); border-radius: 8px; padding: 1.4rem; text-decoration: none; color: inherit; transition: transform 0.2s; display: block; }
     .related-card:hover { transform: translateY(-3px); }
     .related-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.4rem; }
     .related-card p { font-size: 0.84rem; color: #666; line-height: 1.6; }
+
     @media (max-width: 900px) { .game-layout { grid-template-columns: 1fr; } .game-sidebar { position: static; } .related-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 560px) { .related-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 <div id="site-nav"></div>
+
 <div class="page-hero game-hero">
   <div class="page-hero-inner">
     <div class="breadcrumb"><a href="games.html">Games</a> <span>›</span> <span>In Alleys Dark</span></div>
     <span class="section-label">Full Campaign · Noir</span>
     <h1>In Alleys Dark</h1>
-    <p>A Rankston Reckoning — Justice in a city where those in charge can't be trusted.</p>
+    <p>A Rankston Reckoning -- Justice in a city where the worst crooks wear badges.</p>
   </div>
 </div>
+
 <section>
   <div class="game-layout">
+
     <div class="game-main">
+
+      <div class="coming-soon-banner">
+        <span>🕵️</span>
+        <p>Coming Soon to Kickstarter<em>Full campaign details and pre-launch link coming soon. Check back or join our newsletter to be the first to know.</em></p>
+      </div>
+
+      <div class="flavor-block">
+        <p>Rankston is known by outsiders for the big city glitz and glamour of Tempo Plaza. But away from the flickering neon, residents are stacked up like vultures on a carcass, ripping scraps where we can take them. The Department enforces a warped law and order with short tempers and fast bullets. Yet The Shiners work in the shadows to keep Kelly and his ruffians honest. We light a fire in the dark, investigating crimes undercover to ensure justice is served. To avoid the wrath of The Department, we have to move In Alleys Dark.</p>
+      </div>
+
       <h2>About the Game</h2>
-      <p><!-- ADD: 2-3 paragraphs describing In Alleys Dark. What is Rankston? What kind of stories does this game tell? --></p>
-      <p>In Alleys Dark is a 1920s vigilante noir tabletop RPG. The law in Rankston is either bought or broken, and the only justice left is the kind you make yourself. You play as a group of vigilantes — ordinary people who've decided that enough is enough — navigating a city full of corruption, moral ambiguity, and shadowy figures with dangerous agendas.</p>
-      <p><!-- ADD: More on the tone, how sessions play, what makes the moral choices interesting. --></p>
-      <h2>What's In the Book</h2>
-      <ul>
-        <li>A complete rulebook with everything you need to play</li>
-        <li><!-- ADD: List included content --></li>
-        <li><!-- ADD: More content --></li>
-      </ul>
-      <h2>Who Is This Game For?</h2>
-      <p><!-- ADD: Describe the ideal table. Fans of noir fiction? Moral complexity lovers? --></p>
+      <p>In Alleys Dark is a Push Powered tabletop RPG set in the 1920s city of Rankston -- a place where the law is bought, broken, or both. Players are members of The Shiners, a secret guild of justice seekers doing the work that corrupt officials won't. Everyone at the table is a player. There is no GM and no prep.</p>
+      <p>Mayor Baker and his rival Councilman Patterson sling mud at each other for the pretense of political prestige, but the real power belongs to Commissioner Kelly alone. The Department uses the violent mysteries that plague this city as impetus to incriminate anyone with the audacity to stand in their way. The Shiners are the only thing standing between Rankston's residents and the people sworn to protect them.</p>
+
       <h2>The World of Rankston</h2>
-      <p><!-- ADD: Brief lore overview of the Rankston setting. Key factions, atmosphere, tone. --></p>
+      <p>Rankston is a city of sharp contrasts. The glittering lights of Tempo Plaza draw the wealthy and the ambitious, while the rest of the city scrapes by in the shadows of those same towers. Three forces shape life here:</p>
+      <ul>
+        <li><strong>The Department</strong> -- Commissioner Kelly's police force, more interested in power than justice</li>
+        <li><strong>The Political Machine</strong> -- Mayor Baker and Councilman Patterson, trading favors and accusations in equal measure</li>
+        <li><strong>The Shiners</strong> -- a secret guild of ordinary people doing extraordinary things in the dark</li>
+      </ul>
+
+      <h2>Is This Game for You?</h2>
+      <p>In Alleys Dark is for players who love morally complex stories, 1920s atmosphere, and the satisfaction of justice served outside the law. It is not a game of flashy combat or dungeon crawls. It is a game of investigation, difficult choices, and finding out what your characters are willing to do when the system has failed everyone around them.</p>
+      <p>If you love noir fiction, stories about ordinary people standing up to corrupt power, and collaborative storytelling with no prep required -- this game was made for you.</p>
+
       <h2>Designer's Notes</h2>
-      <p><!-- ADD: Brian's notes on inspiration and design philosophy for this game. --></p>
+      <p><!-- ADD: Brian's notes on what inspired In Alleys Dark and the design philosophy behind it. --></p>
+
     </div>
+
+    <!-- SIDEBAR -->
     <aside class="game-sidebar">
       <div class="sidebar-card">
         <div class="sidebar-cover">
@@ -76,17 +127,20 @@
         <ul class="meta-list">
           <li><span class="meta-label">Type</span><span class="meta-value">Full Campaign</span></li>
           <li><span class="meta-label">Genre</span><span class="meta-value">Noir · 1920s</span></li>
-          <li><span class="meta-label">Players</span><span class="meta-value"><!-- e.g. 2–5 --></span></li>
-          <li><span class="meta-label">Session Length</span><span class="meta-value"><!-- e.g. 2–4 hrs --></span></li>
+          <li><span class="meta-label">Players</span><span class="meta-value">2 to 5</span></li>
+          <li><span class="meta-label">Session Length</span><span class="meta-value">1 to 3 hours</span></li>
+          <li><span class="meta-label">GM Required</span><span class="meta-value">No -- fully GMless</span></li>
+          <li><span class="meta-label">System</span><span class="meta-value">Push Powered</span></li>
           <li><span class="meta-label">Format</span><span class="meta-value">PDF + Print</span></li>
+          <li><span class="meta-label">Status</span><span class="meta-value">Coming Soon</span></li>
         </ul>
       </div>
       <div class="sidebar-card">
-        <h4>Get Your Copy</h4>
+        <h4>Get Notified</h4>
         <div class="buy-block">
-          <a href="https://www.drivethrurpg.com" target="_blank" rel="noopener" class="btn-primary">Buy on DriveThruRPG</a>
+          <a href="index.html#signup" class="btn-primary">Join Our Newsletter</a>
         </div>
-        <p class="buy-note">PDF delivered instantly via DriveThruRPG.</p>
+        <p class="buy-note">We will announce the Kickstarter launch to our list first. Pre-launch link coming soon.</p>
       </div>
       <div class="sidebar-card">
         <h4>Also in Rankston</h4>
@@ -95,18 +149,23 @@
         </a>
       </div>
     </aside>
+
   </div>
 </section>
+
+<!-- RELATED -->
 <section class="related">
   <span class="section-label">More Games</span>
   <h2 class="section-heading">You Might Also Like</h2>
   <div class="related-grid">
-    <a href="game-terminus.html" class="related-card"><span class="game-badge badge-campaign">Full Campaign</span><h4>Terminus X7Z</h4><p>Sci-fi social conflict among the stars — diplomacy over combat.</p></a>
-    <a href="game-onw-alleys.html" class="related-card"><span class="game-badge badge-oneshot">One Night World</span><h4>One Night Worlds: In Alleys Dark</h4><p>Vigilante noir in a single session.</p></a>
-    <a href="game-clockwork.html" class="related-card"><span class="game-badge badge-oneshot">One Night World</span><h4>Tales of Clockwork & Chaos</h4><p>Steampunk resistance against clockwork rulers.</p></a>
+    <a href="game-terminus.html" class="related-card"><span class="game-badge badge-campaign">Full Campaign</span><h4>Terminus X7Z</h4><p>Sci-fi social conflict among the stars -- diplomacy over combat.</p></a>
+    <a href="game-onw-alleys.html" class="related-card"><span class="game-badge badge-oneshot">One Night World</span><h4>One Night Worlds: In Alleys Dark</h4><p>Vigilante noir in a single session -- perfect for new players.</p></a>
+    <a href="game-chaterra.html" class="related-card"><span class="game-badge badge-oneshot">One Night World</span><h4>The Fires of Chaterra</h4><p>Fairytale fantasy -- a sleeping king, mushroom folk, and an evil witch.</p></a>
   </div>
 </section>
+
 <div id="site-footer"></div>
-<script src="js/main.js"></script><script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/components.js"></script>
 </body>
 </html>
