@@ -520,14 +520,22 @@
         -->
 
         <!-- BREVO FORM -->
-        <form id="sib-form" class="wpp-brevo-form" method="POST" action="https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA==" data-type="subscription">
-          <div class="wpp-form-row">
-            <input type="email" id="EMAIL" name="EMAIL" placeholder="Enter your email address" required autocomplete="email" />
-            <input type="hidden" name="locale" value="en" />
-            <input type="hidden" name="html_type" value="simple" />
-            <button type="submit">Send Me the Free Game 🎁</button>
+        <div id="sib-form-container" class="sib-form-container">
+          <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:14px; color:#661d1d; background-color:#ffeded; border-radius:6px; padding:0.75rem 1rem; margin-bottom:0.75rem;">
+            Your subscription could not be saved. Please try again.
           </div>
-        </form>
+          <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:14px; color:#085229; background-color:#e7faf0; border-radius:6px; padding:0.75rem 1rem; margin-bottom:0.75rem;">
+            Almost there! Check your inbox and click the confirmation link to get your free game.
+          </div>
+          <form id="sib-form" class="wpp-brevo-form" method="POST" action="https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA==" data-type="subscription">
+            <div class="wpp-form-row">
+              <input class="input" type="text" id="EMAIL" name="EMAIL" placeholder="Enter your email address" data-required="true" required />
+              <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;" />
+              <input type="hidden" name="locale" value="en" />
+              <button type="submit">Send Me the Free Game 🎁</button>
+            </div>
+          </form>
+        </div>
         <!-- END BREVO FORM -->
 
         <p class="signup-fine">No spam. No nonsense. Unsubscribe any time.</p>
@@ -550,6 +558,16 @@
 
 <script src="js/main.js"></script>
 <script src="js/components.js"></script>
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+  window.LOCALE = 'en';
+  window.EMAIL_INVALID_MESSAGE = 'The information provided is invalid. Please review the field format and try again.';
+  window.REQUIRED_ERROR_MESSAGE = 'This field cannot be left blank.';
+  window.GENERIC_INVALID_MESSAGE = 'The information provided is invalid. Please review the field format and try again.';
+  window.translation = { common: { selectedList: '{quantity} list selected', selectedLists: '{quantity} lists selected' } };
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 <script>
   (function() {
     const stack = document.getElementById('card-stack');
