@@ -8,31 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    /* ── Brevo form field styles ── */
-    .wpp-brevo-form { width: 100%; }
-    .wpp-form-row { display: flex; flex-direction: column; gap: 0.75rem; }
-    .wpp-brevo-form input[type="email"] {
-      width: 100%; padding: 0.9rem 1.1rem;
-      border: 2px solid rgba(138,171,126,0.35); border-radius: 6px;
-      font-family: 'Nunito', sans-serif; font-size: 0.95rem;
-      background: rgba(255,255,255,0.07); color: #f5f0e8;
-      outline: none; transition: border-color 0.2s, background 0.2s;
-      box-sizing: border-box;
-    }
-    .wpp-brevo-form input[type="email"]:focus {
-      border-color: #8aab7e; background: rgba(255,255,255,0.11);
-    }
-    .wpp-brevo-form input[type="email"]::placeholder { color: rgba(221,232,226,0.4); }
-    .wpp-brevo-form button[type="submit"] {
-      width: 100%; padding: 0.95rem 1.5rem;
-      background: #c05c2a; color: #fff;
-      border: none; border-radius: 6px;
-      font-family: 'Nunito', sans-serif; font-size: 0.97rem;
-      font-weight: 700; letter-spacing: 0.03em;
-      cursor: pointer; transition: background 0.2s, transform 0.15s;
-    }
-    .wpp-brevo-form button[type="submit"]:hover {
-      background: #a84d22; transform: translateY(-2px);
+    /* ── Brevo embed styles ── */
+    .brevo-iframe-wrap { width: 100%; max-width: 540px; margin: 0 auto; }
+    .brevo-iframe-wrap iframe {
+      width: 100%; min-height: 360px;
+      border: none; border-radius: 12px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.08);
     }
     /* --- Hero --- */
     .hero {
@@ -179,37 +161,6 @@
     .signup-form-headline { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); line-height: 1.4; margin-bottom: 0.6rem; }
     .signup-form-headline em { color: var(--gold); font-style: italic; }
     .signup-form-sub { font-size: 0.86rem; color: rgba(221,232,226,0.65); line-height: 1.65; font-weight: 300; margin-bottom: 1.5rem; }
-    .signup-form-fields { display: flex; flex-direction: column; gap: 0.75rem; }
-
-    /* These styles apply to both the placeholder AND Brevo's fields
-       once you add class="brevo-input" and class="brevo-btn" in Brevo */
-    .brevo-input,
-    .signup-form-fields input[type="email"] {
-      width: 100%; padding: 0.9rem 1.1rem;
-      border: 2px solid rgba(138,171,126,0.35); border-radius: 6px;
-      font-family: 'Nunito', sans-serif; font-size: 0.95rem;
-      background: rgba(255,255,255,0.07); color: var(--cream);
-      outline: none; transition: border-color 0.2s, background 0.2s;
-    }
-    .brevo-input:focus,
-    .signup-form-fields input:focus { border-color: var(--moss); background: rgba(255,255,255,0.11); }
-    .brevo-input::placeholder,
-    .signup-form-fields input::placeholder { color: rgba(221,232,226,0.35); }
-
-    .brevo-btn,
-    .signup-form-fields button {
-      width: 100%; padding: 0.95rem 1.5rem;
-      background: var(--rust); color: #fff;
-      border: none; border-radius: 6px;
-      font-family: 'Nunito', sans-serif; font-size: 0.97rem;
-      font-weight: 700; letter-spacing: 0.03em;
-      cursor: pointer; transition: background 0.2s, transform 0.15s;
-    }
-    .brevo-btn:hover,
-    .signup-form-fields button:hover { background: #a84d22; transform: translateY(-2px); }
-
-    .signup-success-msg { color: var(--moss); font-weight: 600; font-size: 0.95rem; padding: 0.75rem; background: rgba(138,171,126,0.12); border-radius: 6px; border: 1px solid rgba(138,171,126,0.25); margin-top: 0.25rem; }
-    .signup-error-msg { color: #e07070; font-size: 0.86rem; margin-top: 0.25rem; }
     .signup-fine { font-size: 0.75rem; color: rgba(221,232,226,0.4); margin-top: 1rem; text-align: center; }
 
     /* About strip */
@@ -507,75 +458,27 @@
         ============================================================
         BREVO FORM — HOW TO REPLACE THIS:
 
-        1. In Brevo, go to Email → Forms → Create a new form
-        2. Add a single Email field
-        3. Set the confirmation to show a thank-you message (not redirect)
-        4. Click Share & Embed → copy the HTML embed code
-        5. DELETE everything between BREVO START and BREVO END below
-           and paste your Brevo code there instead
-        6. On Brevo's <input> tag add:  class="brevo-input"
-           On Brevo's <button> tag add: class="brevo-btn"
-           The styling will snap into place automatically.
+        The signup now embeds Brevo's hosted form via iframe. When
+        you update the form in Brevo, click Share & Embed → Iframe and
+        replace the src URL below. Brevo handles validation, double
+        opt-in, and confirmation UI inside the iframe.
         ============================================================
         -->
 
         <!-- BREVO FORM -->
-        <div id="wpp-signup-wrap">
-          <div id="wpp-error-msg" style="display:none; font-size:14px; color:#661d1d; background-color:#ffeded; border-radius:6px; padding:0.75rem 1rem; margin-bottom:0.75rem;">
-            Something went wrong. Please try again.
-          </div>
-          <div id="wpp-success-msg" style="display:none; font-size:14px; color:#085229; background-color:#e7faf0; border-radius:6px; padding:0.75rem 1rem; margin-bottom:0.75rem;">
-            Almost there! Check your inbox and click the confirmation link to get your free game. 🎁
-          </div>
-          <div id="wpp-form-fields" class="wpp-form-row">
-            <input type="email" id="wpp-email" placeholder="Enter your email address" required autocomplete="email" />
-            <button id="wpp-submit-btn" onclick="wppSubmit()">Send Me the Free Game 🎁</button>
-          </div>
+        <div class="brevo-iframe-wrap">
+          <iframe
+            title="Wandering Pine Press signup form"
+            width="540"
+            height="360"
+            src="https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA=="
+            frameborder="0"
+            scrolling="auto"
+            allowfullscreen
+            loading="lazy"
+            style="display:block;margin:0 auto;max-width:100%;">
+          </iframe>
         </div>
-        <script>
-        function wppSubmit() {
-          var email = document.getElementById('wpp-email').value;
-          if (!email || !email.includes('@')) {
-            document.getElementById('wpp-error-msg').style.display = 'block';
-            document.getElementById('wpp-error-msg').textContent = 'Please enter a valid email address.';
-            return;
-          }
-          var btn = document.getElementById('wpp-submit-btn');
-          btn.textContent = 'Sending...';
-          btn.disabled = true;
-          document.getElementById('wpp-error-msg').style.display = 'none';
-
-          var form = document.createElement('form');
-          form.method = 'POST';
-          form.action = 'https://1209ea44.sibforms.com/serve/MUIFABfO5A0L30DvUO2YR5NtKj8zsA2bqEgZEi93_o63WAe5gko6tuaO9ENjoxm7KVuXmoH61ovYbUEoMK1C6AhuCJo7g4-MqExdlQRtVFmJMZ4ASLyGaFVZR9aaJ4LnJbnQsH_xvN6NBpBoskx9e4ls0jHM2OsaF03aERmt5JZdAz1Qhit0vOjluQRGt4zzG_K2wyd37W99VC3omA==';
-          form.target = '_blank';
-
-          var emailField = document.createElement('input');
-          emailField.type = 'hidden';
-          emailField.name = 'EMAIL';
-          emailField.value = email;
-          form.appendChild(emailField);
-
-          var honeypot = document.createElement('input');
-          honeypot.type = 'hidden';
-          honeypot.name = 'email_address_check';
-          honeypot.value = '';
-          form.appendChild(honeypot);
-
-          var locale = document.createElement('input');
-          locale.type = 'hidden';
-          locale.name = 'locale';
-          locale.value = 'en';
-          form.appendChild(locale);
-
-          document.body.appendChild(form);
-          form.submit();
-          document.body.removeChild(form);
-
-          document.getElementById('wpp-form-fields').style.display = 'none';
-          document.getElementById('wpp-success-msg').style.display = 'block';
-        }
-        </script>
         <!-- END BREVO FORM -->
 
         <p class="signup-fine">No spam. No nonsense. Unsubscribe any time.</p>
